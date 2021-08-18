@@ -24,9 +24,24 @@ class PermohonanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function akun()
+    {
+        $tampil = Permohonan::all();
+        return view('layouts.user.akun', ['tampil' => $tampil, 'page' => 'Akun Saya']);
+
+    }
+
+    public function awal()
+    {
+        $tampil = Permohonan::all();
+        return view('layouts.user.permohonan', ['tampil' => $tampil, 'page' => 'Permohonan User']);
+    }
+
     public function create()
     {
-        //
+        $tampil = Permohonan::all();
+        return view('layouts.user.tambah', ['tampil' => $tampil, 'page' => 'Tambah Permohonan']);
     }
 
     /**
@@ -37,7 +52,17 @@ class PermohonanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Permohonan::create([
+            'no_tiket' => request('no_tiket'),
+            'topik' => request('topik'),
+            'judul' => request('judul'),
+            'deskripsi' => request('deskripsi'),
+            'lampiran' => request('lampiran'),
+            'status' => request('status'),
+            'progres' => request('progres'),
+        ]);
+
+            return redirect()->back();
     }
 
     /**

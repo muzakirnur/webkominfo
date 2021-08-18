@@ -10,7 +10,13 @@ class Permohonan extends Model
     use HasFactory;
 
     protected $fillable = [
+        'no_tiket',
+        'topik',
         'kategori',
         'judul',
+        'deskripsi',
+        'lampiran',
+        'status',
+        'progres',
     ];
 }

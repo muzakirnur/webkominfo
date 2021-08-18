@@ -16,10 +16,10 @@ class CreatePermohonansTable extends Migration
         Schema::create('permohonans', function (Blueprint $table) {
             $table->id();
             $table->string('no_tiket');
-            $table->string('Kategori');
+            $table->string('topik');
             $table->string('judul');
-            $table->string('pterkait');
-            $table->string('prioritas');
+            $table->string('deskripsi');
+            $table->string('lampiran');
             $table->string('status');
             $table->string('progres');
             $table->timestamps();
