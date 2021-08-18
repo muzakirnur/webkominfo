@@ -15,7 +15,7 @@
                         </div>
                     @endif
  
-                    <p><strong>Git Tes</strong> Anda telah melakukan login sebagai</p>
+                    <p><strong>Git Tes</strong> Tes Git 2</p>
                 </div>
             </div>
         </div>
