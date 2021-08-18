@@ -15,7 +15,7 @@
                         </div>
                     @endif
  
-                    <p><strong>Git Tes</strong> Tes Git 2</p>
+                    <p><strong>Git Tes</strong> Tes Git 3</p>
                 </div>
             </div>
         </div>
