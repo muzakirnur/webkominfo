@@ -15,7 +15,7 @@
                         </div>
                     @endif
  
-                    <p><strong>Selamat datang !</strong> Anda telah melakukan login sebagai</p>
+                    <p><strong>Git Tes</strong> Anda telah melakukan login sebagai</p>
                 </div>
             </div>
         </div>
