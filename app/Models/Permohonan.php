@@ -11,11 +11,11 @@ class Permohonan extends Model
 
     protected $fillable = [
         'no_tiket',
-        'kategori',
+        'topik',
         'judul',
-        'pterkait',
-        'prioritas',
+        'deskripsi',
+        'lampiran',
         'status',
-        'progres'
+        'progres',
     ];
 }

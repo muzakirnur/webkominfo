@@ -10,7 +10,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DaftarUserController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\HomeController;
-use SebastianBergmann\Environment\Runtime;
+use App\Http\Controllers\PermohonanUserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -77,6 +77,10 @@ Route::group(['middleware' => 'auth'], function () {
                 "page" => "Dashboard User"
             ]);
         });
+        Route::get('user/permohonan', [PermohonanController::class, 'awal'])->name('awal');
+        Route::get('user/akun', [PermohonanController::class, 'akun'])->name('akun');
+        Route::get('user/tambah', [PermohonanController::class, 'create'])->name('create');
+        Route::post('user/tambah', [PermohonanController::class, 'store']);
     });
 
     Route::get('logout', [LoginController::class, 'logout'])->name('logout');
