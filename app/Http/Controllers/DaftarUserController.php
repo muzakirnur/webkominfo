@@ -50,7 +50,7 @@ class DaftarUserController extends Controller
     {
         //menampilkan detail data dengan menemukan/berdasarkan id user
         $DaftarUser = User::find($id);
-        return view('layouts.admin.detailuser', compact('DaftarUser'));
+        return view('layouts.admin.detailuser', compact('DaftarUser'), ['page' => 'Detail User']);
     }
 
     /**
@@ -61,7 +61,8 @@ class DaftarUserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $DaftarUser = User::find($id);
+        return view('layouts.admin.useredit', compact('DaftarUser'), ['page' => 'Edit User']);
     }
 
     /**
@@ -71,9 +72,12 @@ class DaftarUserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, User $user)
     {
-        //
+        $user->update($request->all());
+
+        return redirect()->route('daftaruser.index')
+            ->with('success', 'User Berhasil di Edit');
     }
 
     /**
