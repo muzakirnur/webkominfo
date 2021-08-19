@@ -25,7 +25,6 @@
                                 <th>Lampiran</th>
                                 <th>Status</th>
                                 <th>Progres</th>
-                                <th>Aksi</th>
                             </tr>
                         </thead>
                         <tfoot>
@@ -37,7 +36,6 @@
                                 <th>Lampiran</th>
                                 <th>Status</th>
                                 <th>Progres</th>
-                                <th>Aksi</th>
                             </tr>
                         </tfoot>
                         <tbody>
@@ -50,10 +48,6 @@
                                 <td>{{ $row->lampiran }}</td>
                                 <th>{{ $row->status }}</th>
                                 <th>{{ $row->progres }}</th>
-                                <td><a href="/user/permohonan/{{ $row->id }}">
-                                    <button class="btn btn-primary"><i class="fas fa-edit"></i>
-                                        Edit
-                                    </button></a></td>
                             </tr>
                             @endforeach
                         </tbody>
