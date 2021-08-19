@@ -32,7 +32,6 @@ class PermohonanController extends Controller
     {
         $tampil = Permohonan::all();
         return view('layouts.user.akun', ['tampil' => $tampil, 'page' => 'Akun Saya']);
-
     }
 
     public function awal()
@@ -65,7 +64,7 @@ class PermohonanController extends Controller
             'progres' => request('progres'),
         ]);
 
-            return redirect()->back();
+        return redirect()->back();
     }
 
     /**
