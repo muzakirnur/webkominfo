@@ -17,37 +17,40 @@
                 <div class="table-responsive">
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
-                            <tr class="table-primary">
+                            <tr class="bg-primary" style="color: white">
                                 <th>No.Tiket</th>
-                                <th>Kategori</th>
+                                <th>Tanggal</th>
+                                <th>topik</th>
                                 <th>Judul Permasalahan</th>
-                                <th>Permohonan Terkait</th>
-                                <th>Prioritas</th>
+                                <th>lampiran</th>
                                 <th>Status</th>
+                                <th>Progres</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
                         <tfoot>
-                            <tr class="table-primary">
+                            <tr class="bg-primary" style="color: white">
                                 <th>No.Tiket</th>
-                                <th>Kategori</th>
+                                <th>Tanggal</th>
+                                <th>topik</th>
                                 <th>Judul Permasalahan</th>
-                                <th>Permohonan Terkait</th>
-                                <th>Prioritas</th>
+                                <th>lampiran</th>
                                 <th>Status</th>
+                                <th>Progres</th>
                                 <th>Aksi</th>
                             </tr>
                         </tfoot>
                         <tbody>
-                            @foreach ($tampil as $row)
+                            @foreach ($permohonan as $row)
                             <tr>
                                 <td>{{ $row->no_tiket }}</td>
-                                <td>{{ $row->Kategori }}</td>
+                                <td>{{ $row->created_at->format('d-m-Y') }}</td>
+                                <td>{{ $row->topik }}</td>
                                 <td>{{ $row->judul }}</td>
-                                <td>{{ $row->pterkait }}</td>
-                                <td>{{ $row->prioritas }}</td>
+                                <td>{{ $row->lampiran }}</td>
                                 <th>{{ $row->status }}</th>
-                                <td><a href="/admin/permohonan/edit/{{ $row->id }}">
+                                <th>{{ $row->progres }}</th>
+                                <td><a href="{{ route('permohonan.edit', $row->id) }}">
                                     <button class="btn btn-primary"><i class="fas fa-edit"></i>
                                         Edit
                                     </button></a></td>

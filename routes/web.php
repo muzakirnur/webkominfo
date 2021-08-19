@@ -7,6 +7,7 @@ use App\Http\Controllers\RegisterController;
 use App\Models\Permohonan;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\DaftarUserController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PermohonanUserController;
@@ -63,9 +64,11 @@ Route::group(['middleware' => 'auth'], function () {
                 "page" => "Dashboard"
             ]);
         });
-        Route::get('admin/permohonan', [PermohonanController::class, 'index'])->name('index');
-        Route::get('admin/permohonan/edit/{id}', [PermohonanController::class, 'edit'])->name('edit');
-        Route::post('admin/permohonan/update/{id}', [PermohonanController::class, 'update']);
+        Route::resource('permohonan', PermohonanController::class);
+        Route::resource('daftaruser', DaftarUserController::class);
+        //Route::get('admin/permohonan', [PermohonanController::class, 'index'])->name('index');
+        //Route::get('admin/permohonan/edit/{id}', [PermohonanController::class, 'edit'])->name('edit');
+        //Route::post('admin/permohonan/update/{id}', [PermohonanController::class, 'update']);
     });
 
     Route::middleware(['user'])->group(function () {

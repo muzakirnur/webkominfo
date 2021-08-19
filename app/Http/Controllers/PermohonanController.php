@@ -15,8 +15,11 @@ class PermohonanController extends Controller
      */
     public function index()
     {
-        $tampil = Permohonan::all();
-        return view('layouts.admin.permohonan', ['tampil' => $tampil, 'page' => 'Permohonan']);
+        $permohonan = Permohonan::latest()->paginate(5);
+        return view('layouts.admin.permohonan', compact('permohonan'), ['page' => 'Permohonan'])
+            ->with('i', (request()->input('page', 1) - 1) * 5);
+        //$tampil = Permohonan::all();
+        //return view('layouts.admin.permohonan', ['tampil' => $tampil, 'page' => 'Permohonan']);
     }
 
     /**
@@ -84,7 +87,7 @@ class PermohonanController extends Controller
      */
     public function edit($id)
     {
-        $permohonan = Permohonan::findorfail($id);
+        $permohonan = Permohonan::find($id);
         return view('layouts.admin.pedit', compact('permohonan'), ['page' => 'Edit']);
     }
 
@@ -95,11 +98,21 @@ class PermohonanController extends Controller
      * @param  \App\Models\Permohonan  $permohonan
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Permohonan $permohonan)
     {
-        $permohonan = Permohonan::find($id)->update($request->all());
+        $request->validate([
+            'no_tiket' => 'required',
+            'topik' => 'required',
+            'judul' => 'required',
+            'deskripsi' => 'required',
+            'lampiran' => 'required',
+            'status' => 'required',
+            'progres' => 'required'
+        ]);
+        $permohonan->update($request->all());
 
-        return redirect()->route('index')->with('success', ' Data telah diperbaharui!');
+        return redirect()->route('permohonan.index')
+            ->with('success', 'Permohonan Berhasil diupdate');
     }
 
     /**
