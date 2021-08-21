@@ -7,6 +7,17 @@
 
         <!-- Page Heading -->
         <h1 class="h3 mb-2 text-gray-800">Daftar Permohonan</h1>
+        @if (session()->has('updatesuccess'))
+                                <div class="alert alert-primary d-flex align-items-center" role="alert">
+                                    <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img"
+                                        aria-label="Success:">
+                                        <use xlink:href="#check-circle-fill" />
+                                    </svg>
+                                    <div>
+                                        {{ session('updatesuccess') }}
+                                    </div>
+                                </div>
+                            @endif
 
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
@@ -21,27 +32,12 @@
                                 <th>No.Tiket</th>
                                 <th>Nama Pemohon</th>
                                 <th>Tanggal</th>
-                                <th>topik</th>
-                                <th>Judul Permasalahan</th>
-                                <th>lampiran</th>
+                                <th>Topik</th>
                                 <th>Status</th>
-                                <th>Progres</th>
+                                <th>Lihat</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
-                        <tfoot>
-                            <tr class="bg-primary" style="color: white">
-                                <th>No.Tiket</th>
-                                <th>Nama Pemohon</th>
-                                <th>Tanggal</th>
-                                <th>topik</th>
-                                <th>Judul Permasalahan</th>
-                                <th>lampiran</th>
-                                <th>Status</th>
-                                <th>Progres</th>
-                                <th>Aksi</th>
-                            </tr>
-                        </tfoot>
                         <tbody>
                             @foreach ($permohonan as $row)
                             <tr>
@@ -49,10 +45,11 @@
                                 <td>{{ $row->user->name }}</td>
                                 <td>{{ $row->created_at->format('d-m-Y') }}</td>
                                 <td>{{ $row->topik }}</td>
-                                <td>{{ $row->judul }}</td>
-                                <td>{{ $row->lampiran }}</td>
                                 <th>{{ $row->status }}</th>
-                                <th>{{ $row->progres }}</th>
+                                <td><a href="{{ route('permohonan.show', $row->id) }}">
+                                    <button class="btn btn-success"><i class="fas fa-eye"></i>
+                                        Show
+                                    </button></a></td>
                                 <td><a href="{{ route('permohonan.edit', $row->id) }}">
                                     <button class="btn btn-primary"><i class="fas fa-edit"></i>
                                         Edit

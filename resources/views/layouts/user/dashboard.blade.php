@@ -99,8 +99,4 @@
             </div>
         </div>
 
-
-
-        <!-- Content Row -->
-
 @endsection

@@ -72,12 +72,41 @@ class DaftarUserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, User $DaftarUser)
     {
-        $user->update($request->all());
+        $this->validate($request, [
+            'name' => 'required',
+            'nip' => 'required',
+            'jabatan' => 'required',
+            'instansi' => 'required',
+            'hp' => 'required|numeric|min:8|max:11',
+            'role' => 'required',
+            'email' => 'required',
+            'profile' => 'required',
+        ]);
+
+        $DaftarUser->update($request->all());
 
         return redirect()->route('daftaruser.index')
-            ->with('success', 'User Berhasil di Edit');
+            ->with('updatesuccess', 'User Berhasil diupdate');
+
+        // $request->validate([
+        //     'id' => 'required',
+        //     'name' => 'required',
+        //     'nip' => 'required',
+        //     'jabatan' => 'required',
+        //     'instansi' => 'required',
+        //     'hp' => 'required',
+        //     'role' => 'required',
+        //     'email' => 'required',
+        //     'profile' => 'required'
+        // ]);
+        // return redirect()->route('daftaruser.index')
+        //     ->with('success', 'User Berhasil diupdate');
+        // $DaftarUser->update($request->all());
+
+        // return redirect()->route('daftaruser.index')
+        //     ->with('success', 'User Berhasil di Edit');
     }
 
     /**

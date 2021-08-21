@@ -11,6 +11,7 @@ use App\Http\Controllers\DaftarUserController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PermohonanUserController;
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -66,6 +67,7 @@ Route::group(['middleware' => 'auth'], function () {
         });
         Route::resource('permohonan', PermohonanController::class);
         Route::resource('daftaruser', DaftarUserController::class);
+        Route::resource('profile', ProfileController::class);
         //Route::get('admin/permohonan', [PermohonanController::class, 'index'])->name('index');
         //Route::get('admin/permohonan/edit/{id}', [PermohonanController::class, 'edit'])->name('edit');
         //Route::post('admin/permohonan/update/{id}', [PermohonanController::class, 'update']);
