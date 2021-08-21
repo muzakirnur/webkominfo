@@ -5,12 +5,14 @@
     <!-- Begin Page Content -->
     <div class="container">
 
-        <form action="" method="POST">
+        <form action="" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
                 <label >No.Tiket</label>
                     <input type="text" class="form-control" id="exampleFormControlInput1" value="001" name="no_tiket" readonly>
             </div>
+
+                    <input type="hidden" class="form-control" id="exampleFormControlInput1" value="{{ Auth::user()->id }}" name="user_id" readonly>
             
             <div class="form-group">
                 <label >Kategori</label>

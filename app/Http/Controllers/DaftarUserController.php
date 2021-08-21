@@ -90,4 +90,18 @@ class DaftarUserController extends Controller
     {
         //
     }
+    
+    public function tampil()
+    {
+        $tampil = User::all();
+        return view('layouts.user.edituser', ['tampil' => $tampil, 'page' => 'Edit User']);
+    }
+
+    public function akun()
+    {
+        $tampil = User::all();
+        return view('layouts.user.akun', ['tampil' => $tampil, 'page' => 'Akun Saya']);
+    }
+
+
 }

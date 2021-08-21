@@ -29,12 +29,6 @@ class PermohonanController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function akun()
-    {
-        $tampil = Permohonan::all();
-        return view('layouts.user.akun', ['tampil' => $tampil, 'page' => 'Akun Saya']);
-    }
-
     public function awal()
     {
         $tampil = Permohonan::all();
@@ -55,18 +49,26 @@ class PermohonanController extends Controller
      */
     public function store(Request $request)
     {
-        Permohonan::create([
-            'no_tiket' => request('no_tiket'),
-            'topik' => request('topik'),
-            'judul' => request('judul'),
-            'deskripsi' => request('deskripsi'),
-            'lampiran' => request('lampiran'),
-            'status' => request('status'),
-            'progres' => request('progres'),
-        ]);
+        $nm = $request->lampiran;
+        $namaFile = $nm->getClientOriginalName();
+
+            $dtUpload = new Permohonan;
+            $dtUpload->no_tiket = $request->no_tiket;
+            $dtUpload->user_id = $request->user_id;
+            $dtUpload->topik = $request->topik;
+            $dtUpload->judul = $request->judul;
+            $dtUpload->deskripsi = $request->deskripsi;
+            $dtUpload->lampiran = $namaFile;
+            $dtUpload->status = $request->status;
+            $dtUpload->progres = $request->progres;
+
+            $nm->move(public_path().'/lampiran',$namaFile);
+            $dtUpload->save();
+
 
         return redirect()->back();
     }
+
 
     /**
      * Display the specified resource.

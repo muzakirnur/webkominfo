@@ -78,9 +78,10 @@ Route::group(['middleware' => 'auth'], function () {
             ]);
         });
         Route::get('user/permohonan', [PermohonanController::class, 'awal'])->name('awal');
-        Route::get('user/akun', [PermohonanController::class, 'akun'])->name('akun');
+        Route::get('user/akun', [DaftarUserController::class, 'akun'])->name('akun');
         Route::get('user/tambah', [PermohonanController::class, 'create'])->name('create');
         Route::post('user/tambah', [PermohonanController::class, 'store']);
+        Route::get('user/edituser', [DaftarUserController::class, 'tampil'])->name('tampil');
     });
 
     Route::get('logout', [LoginController::class, 'logout'])->name('logout');

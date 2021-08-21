@@ -11,6 +11,7 @@ class Permohonan extends Model
 
     protected $fillable = [
         'no_tiket',
+        'user_id',
         'topik',
         'judul',
         'deskripsi',
