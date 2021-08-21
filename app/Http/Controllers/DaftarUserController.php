@@ -79,7 +79,7 @@ class DaftarUserController extends Controller
             'nip' => 'required',
             'jabatan' => 'required',
             'instansi' => 'required',
-            'hp' => 'required|numeric|min:8|max:11',
+            'hp' => 'required',
             'role' => 'required',
             'email' => 'required',
             'profile' => 'required',
@@ -119,7 +119,7 @@ class DaftarUserController extends Controller
     {
         //
     }
-    
+
     public function tampil()
     {
         $tampil = User::all();
@@ -131,6 +131,4 @@ class DaftarUserController extends Controller
         $tampil = User::all();
         return view('layouts.user.akun', ['tampil' => $tampil, 'page' => 'Akun Saya']);
     }
-
-
 }

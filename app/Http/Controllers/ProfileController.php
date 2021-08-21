@@ -72,18 +72,36 @@ class ProfileController extends Controller
      */
     public function update(Request $request, User $UserProfile)
     {
-        $this->validate($request, [
-            'name' => 'required',
-            'nip' => 'required',
-            'jabatan' => 'required',
-            'instansi' => 'required',
-            'hp' => 'required',
-            'role' => 'required',
-            'email' => 'required',
-            'profile' => 'required',
-        ]);
 
-        Auth::user()->update($request->all());
+        $nm = $request->lampiran;
+        $namaFile = $nm->getClientOriginalName();
+
+        $dtUpload = new User;
+        $dtUpload->name = $request->name;
+        $dtUpload->nip = $request->nip;
+        $dtUpload->jabatan = $request->jabatan;
+        $dtUpload->instansi = $request->instansi;
+        $dtUpload->hp = $request->hp;
+        $dtUpload->role = $request->role;
+        $dtUpload->email = $request->email;
+        $dtUpload->profile = $namaFile;
+
+        $nm->move(public_path() . '/img/user', $namaFile);
+        Auth::user()->$dtUpload->update();
+
+        // return redirect()->back();
+        // $this->validate($request, [
+        //     'name' => 'required',
+        //     'nip' => 'required',
+        //     'jabatan' => 'required',
+        //     'instansi' => 'required',
+        //     'hp' => 'required',
+        //     'role' => 'required',
+        //     'email' => 'required',
+        //     $nm = file('profile')->getClientOriginalName(),
+        // ]);
+        // $nm->move(public_path() . '/img/user', $nm);
+        // Auth::user()->update($request->all());
 
         return redirect()->route('profile.index')
             ->with('updatesuccess', 'Profile Berhasil diupdate');
