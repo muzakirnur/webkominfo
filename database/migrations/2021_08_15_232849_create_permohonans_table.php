@@ -15,6 +15,7 @@ class CreatePermohonansTable extends Migration
     {
         Schema::create('permohonans', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade')->onUpdate('cascade');
             $table->string('no_tiket');
             $table->string('topik');
             $table->string('judul');
@@ -24,6 +25,10 @@ class CreatePermohonansTable extends Migration
             $table->string('progres');
             $table->timestamps();
         });
+
+        // Schema::table('permohonans', function (Blueprint $table) {
+        //     $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+        // });
     }
 
     /**

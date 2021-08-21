@@ -19,6 +19,7 @@
                         <thead>
                             <tr class="bg-primary" style="color: white">
                                 <th>No.Tiket</th>
+                                <th>Nama Pemohon</th>
                                 <th>Tanggal</th>
                                 <th>topik</th>
                                 <th>Judul Permasalahan</th>
@@ -31,6 +32,7 @@
                         <tfoot>
                             <tr class="bg-primary" style="color: white">
                                 <th>No.Tiket</th>
+                                <th>Nama Pemohon</th>
                                 <th>Tanggal</th>
                                 <th>topik</th>
                                 <th>Judul Permasalahan</th>
@@ -44,6 +46,7 @@
                             @foreach ($permohonan as $row)
                             <tr>
                                 <td>{{ $row->no_tiket }}</td>
+                                <td>{{ $row->user->name }}</td>
                                 <td>{{ $row->created_at->format('d-m-Y') }}</td>
                                 <td>{{ $row->topik }}</td>
                                 <td>{{ $row->judul }}</td>

@@ -18,4 +18,9 @@ class Permohonan extends Model
         'status',
         'progres',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User');
+    }
 }
