@@ -17,7 +17,7 @@
                             @csrf
                             <div class="form-group">
                                     <input type="text" class="form-control form-control-user @error('name')is-invalid @enderror" id="exampleFirstName"
-                                        placeholder="Nama" name="name" required value="{{ old('name') }}">
+                                        placeholder="Nama" name="name" required value="{{ old('name') }}" autofocus>
                                         @error('name')
                                         <div class="invalid-feedback">
                                             {{ $message }}

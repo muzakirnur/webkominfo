@@ -1,35 +1,35 @@
 @extends('layouts.admin.admin')
+
 @section('abody')
 
 <div class="container mt-5">
     <div class="row justify-content-center align-items-center">
         <div class="card" style="width: 80%;">
             <div class="card-header">
-            Edit User
+            Edit Profile
             </div>
             <div class="card-body">
                 <div class="row g-3">
-                <form action="{{ route('daftaruser.update',$DaftarUser->id) }}" method="post">
+                <form action="{{ route('profile.update',$UserProfile->id) }}" method="post">
                     @csrf
                     @method('PUT')
-                    <input type="hidden" value="{{ $DaftarUser->id }}" id="id" name="id">
                     <div class="row justify-content-start">
                     <div class="col-6 col-sm-4">
                     <label for="basic-url" class="form-label">Nama</label>
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" id="name" name="name" value="{{ $DaftarUser->name }}">
+                        <input type="text" class="form-control" id="name" name="name" value="{{ $UserProfile->name }}" value="{{ old('name') }}">
                     </div>
                     </div>
                     <div class="col-6 col-sm-4">
                     <label for="basic-url" class="form-label">NIP</label>
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" id="nip" name="nip" value="{{ $DaftarUser->nip }}">
+                        <input type="text" class="form-control" id="nip" name="nip" value="{{ $UserProfile->nip }}" value="{{ old('nip') }}">
                     </div>
                     </div>
                     <div class="col-6 col-sm-4">
                     <label for="basic-url" class="form-label">Profile</label>
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" id="profile" name="profile" value="{{ $DaftarUser->profile }}" readonly>
+                        <input type="text" class="form-control" id="profile" name="profile" value="{{ $UserProfile->profile }}" readonly>
                     </div>
                     </div>
                     </div>
@@ -37,19 +37,19 @@
                     <div class="col-6 col-sm-4">
                     <label for="basic-url" class="form-label">Jabatan</label>
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" id="jabatan" name="jabatan" value="{{ $DaftarUser->jabatan }}">
+                        <input type="text" class="form-control" id="jabatan" name="jabatan" value="{{ $UserProfile->jabatan }}" value="{{ old('jabatan') }}">
                     </div>
                     </div>
                     <div class="col-6 col-sm-4">
                     <label for="basic-url" class="form-label">Instansi</label>
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" id="instansi" name="instansi" value="{{ $DaftarUser->instansi }}">
+                        <input type="text" class="form-control" id="instansi" name="instansi" value="{{ $UserProfile->instansi }}" value="{{ old('instansi') }}">
                     </div>
                     </div>
                     <div class="col-6 col-sm-4">
-                    <label for="basic-url" class="form-label">No Handphone</label>
+                    <label for="basic-url" class="form-label">No Hp</label>
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" id="hp" name="hp" value="{{ $DaftarUser->hp }}">
+                        <input type="text" class="form-control" id="hp" name="hp" value="{{ $UserProfile->hp }}" value="{{ old('hp') }}">
                     </div>
                     </div>
                     </div>
@@ -58,7 +58,7 @@
                     <label for="basic-url" class="form-label">role</label>
                     <div class="input-group mb-3">
                         <select class="form-select" id="inputGroupSelect02" name="role" id="role">
-                          <option selected>{{ $DaftarUser->role }}</option>
+                          <option selected>{{ $UserProfile->role }}</option>
                           <option value="admin">admin</option>
                           <option value="user">user</option>
                         </select>
@@ -67,13 +67,13 @@
                     <div class="col-6 col-sm-4">
                     <label for="basic-url" class="form-label">Email</label>
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" id="email" name="email" value="{{ $DaftarUser->email }}">
+                        <input type="text" class="form-control" id="email" name="email" value="{{ $UserProfile->email }}" value="{{ old('email') }}">
                     </div>
                     </div>
                     </div>
                     <div class="card-footer">
                         <div class="row row-cols-lg-3 justify-content-between mx-auto">
-                    <a href="{{ route('daftaruser.index') }}" class="btn btn-light shadow-sm"><i class="fas fa-chevron-left"></i> Kembali</a>
+                    <a href="{{ route('profile.index') }}" class="btn btn-light shadow-sm"><i class="fas fa-chevron-left"></i> Kembali</a>
                     <button type="submit" class="btn btn-primary shadow-sm"><i class="fas fa-user-edit"></i> Simpan</button>
                         </div>
                     </div>
@@ -83,4 +83,5 @@
         </div>
     </div>
 </div>
+
 @endsection

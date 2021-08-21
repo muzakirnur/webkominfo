@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('instansi')->nullable();
             $table->string('hp', 13)->nullable();
             $table->string('role')->default('user');
-            $table->string('email')->unique();
+            $table->string('email');
             $table->string('profile')->default('user.jpg');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

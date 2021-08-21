@@ -76,7 +76,8 @@ class PermohonanController extends Controller
      */
     public function show($id)
     {
-        //
+        $permohonan = Permohonan::find($id);
+        return view('layouts.admin.detailpermohonan', compact('permohonan'), ['page' => 'Detail Permohonan']);
     }
 
     /**
@@ -112,7 +113,7 @@ class PermohonanController extends Controller
         $permohonan->update($request->all());
 
         return redirect()->route('permohonan.index')
-            ->with('success', 'Permohonan Berhasil diupdate');
+            ->with('updatesuccess', 'Permohonan Berhasil diupdate');
     }
 
     /**

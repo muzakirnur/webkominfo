@@ -20,6 +20,10 @@
             <div class="input-group mb-3">
                 <input type="text" class="form-control" id="no_tiket" name="no_tiket" aria-describedby="basic-addon3" value="{{ $permohonan->no_tiket }}" readonly>
               </div>
+            <label class="form-label">Nama Pemohon</label>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" id="user_id" name="user_id" aria-describedby="basic-addon3" value="{{ $permohonan->user->name }}" readonly>
+              </div>
             <label class="form-label">Topik</label>
             <div class="input-group mb-3">
                 <input type="text" class="form-control" id="topik" name="topik" aria-describedby="basic-addon3" value="{{ $permohonan->topik }}" readonly>
@@ -35,7 +39,6 @@
             <label class="form-label">Lampiran</label>
             <div class="input-group mb-3">
                 <input type="text" class="form-control" id="lampiran" name="lampiran" aria-describedby="basic-addon3" value="{{ $permohonan->lampiran }}" readonly>
-                <button class="btn btn-success" type="button"><i class="fas fa-arrow-down fa-1x"> Download</i></button>
               </div>
             <label class="form-label">Status</label>
             <div class="input-group mb-3">

@@ -26,7 +26,7 @@
                                 <div class="h5 mb-0 font-weight-bold text-gray-800"></div>
                             </div>
                             <div class="col-auto">
-                                <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                <i class="fas fa-folder-open fa-2x text-gray-300"></i>
                             </div>
                         </div>
                     </div>
@@ -97,7 +97,5 @@
                 </div>
             </div>
         </div>
-
-        <!-- Content Row -->
 
     @endsection
