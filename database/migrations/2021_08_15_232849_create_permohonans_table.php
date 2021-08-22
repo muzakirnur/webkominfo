@@ -14,14 +14,14 @@ class CreatePermohonansTable extends Migration
     public function up()
     {
         Schema::create('permohonans', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade')->onUpdate('cascade');
             $table->string('no_tiket');
             $table->string('topik');
             $table->string('judul');
             $table->string('deskripsi');
             $table->string('lampiran');
-            $table->string('status');
+            $table->integer('state_id')->unsigned();
             $table->string('progres');
             $table->timestamps();
         });
