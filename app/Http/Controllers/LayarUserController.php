@@ -14,7 +14,7 @@ class LayarUserController extends Controller
      */
     public function index()
     {
-        $layaruser = User::all();
+        $layaruser = Auth::user();
         return view('layouts.user.akun', compact('layaruser'), ['page' => 'Akun Saya']);
     }
 
@@ -58,7 +58,7 @@ class LayarUserController extends Controller
      */
     public function edit($id)
     {
-        $layaruser = User::all();
+        $layaruser = User::find($id);
         return view('layouts.user.edituser', compact('layaruser'), ['page' => 'Edit User']);
     }
 
@@ -69,23 +69,23 @@ class LayarUserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $layaruser)
+    public function update(Request $request)
     {
-        $request->validate([
+        $this->validate($request, [
             'name' => 'required',
             'nip' => 'required',
             'jabatan' => 'required',
             'instansi' => 'required',
-            'hp' => 'required|numeric|min:8|max:11',
+            'hp' => 'required',
             'role' => 'required',
             'email' => 'required',
             'profile' => 'required',
         ]);
 
-        $layaruser->update($request->all());
+        Auth::user()->update($request->all());
 
         return redirect()->route('layaruser.index')
-            ->with('updatesuccess', 'User Berhasil Diedit');
+            ->with('updatesuccess', 'Profile Berhasil diupdate');
 
             //        $request->validate([
           //  'no_tiket' => 'required',

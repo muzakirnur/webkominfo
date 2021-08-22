@@ -15,7 +15,6 @@
                 <h1 class="h3 mb-2 text-gray-800">Informasi Akun</h1>
         
                 <ul class="list-group">
-                    @foreach ($layaruser as $row)
 
                     <label class="">Nama        
                     <li class="list-group-item" style="border-radius: 1.5em">{{ Auth::user()->name }}</li>
@@ -44,11 +43,10 @@
                     <li class="list-group-item" style="border-radius: 1.5em">{{ Auth::user()->hp }}</li>
                 </ul>
 
-                <a href="{{ route('layaruser.edit',$row->id) }}">
+                <a href="{{ route('layaruser.edit',$layaruser->id) }}">
                 <button class="btn btn-primary btn-user btn-block"></i>
                     Edit
                 </button></a>
-            @endforeach
         </div>
 
     </div>

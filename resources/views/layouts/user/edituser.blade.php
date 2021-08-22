@@ -5,48 +5,45 @@
     <!-- Begin Page Content -->
     <div class="container">
         
-        @foreach ($layaruser as $row)
-        <form action="{{ route('layaruser.update',$row->id) }}" method="POST">
+        <form action="{{ route('layaruser.update',$layaruser->id) }}" method="POST">
             @csrf
             @method('PUT')
-
-            <input type="hidden" value="{{ $row->id }}" id="id" name="id">
             <div class="form-group">
                 <label >Nama</label>
-                    <input type="text" class="form-control" id="exampleFormControlInput1"  value="{{ $row->nama }}" placeholder="Nama" name="nama" required>
+                    <input type="text" class="form-control" id="exampleFormControlInput1"  value="{{ $layaruser->name }}" placeholder="Nama" name="name" required>
             </div>
-            
+            <input type="hidden" class="form-control" id="exampleFormControlInput1"  value="{{ $layaruser->role }}" name="role" required>
             <div class="form-group">
                 <label >Email</label>
-                    <input type="text" class="form-control" id="exampleFormControlInput1"  value="{{ $row->email }}" placeholder="Email" name="email" required>
+                    <input type="text" class="form-control" id="exampleFormControlInput1"  value="{{ $layaruser->email }}" placeholder="Email" name="email" required>
             </div>
 
             <div class="form-group">
                 <label >NIP</label>
-                    <input type="text" class="form-control" name="nip" value="{{ $row->nip }}" placeholder="NIP" required>
+                    <input type="text" class="form-control" name="nip" value="{{ $layaruser->nip }}" placeholder="NIP" required>
             </div>
-
             <div class="form-group">
                 <label >No. HP</label>
-                    <input type="text" class="form-control" name="hp" value="{{ $row->hp }}" placeholder="NO. HP" >
+                    <input type="text" class="form-control" name="hp" value="{{ $layaruser->hp }}" placeholder="NO. HP" >
+            </div>
+            <div class="form-group">
+                <label >Profile</label>
+                    <input type="text" class="form-control" name="profile" value="{{ $layaruser->profile }}" readonly >
             </div>
 
             <div class="form-group">
                 <label >Jabatan</label>
-                    <input type="text" class="form-control" id="exampleFormControlTextarea1" value="{{ $row->jabatan }}" name="jabatan" placeholder="Jabatan">
+                    <input type="text" class="form-control" id="exampleFormControlTextarea1" value="{{ $layaruser->jabatan }}" name="jabatan" placeholder="Jabatan">
             </div>
             
             <div class="form-group">
                 <label >Instansi</label>
-                    <input type="text" class="form-control" name="instansi" value="{{ $row->instansi }}" placeholder="Instansi" >
+                    <input type="text" class="form-control" name="instansi" value="{{ $layaruser->instansi }}" placeholder="Instansi" >
             </div>
-
-
             <button type="submit" class="btn btn-primary btn-user btn-block">
                 Submit
             </button>
         </form>
-        @endforeach
 
     </div>
 
