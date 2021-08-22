@@ -1,12 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 
-class DaftarUserController extends Controller
+class LayarUserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +14,8 @@ class DaftarUserController extends Controller
      */
     public function index()
     {
-        $DaftarUser = User::latest()->paginate(5);
-        return view('layouts.admin.users', ['page' => 'Daftar User'], compact('DaftarUser'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+        $layaruser = User::all();
+        return view('layouts.user.akun', compact('layaruser'), ['page' => 'Akun Saya']);
     }
 
     /**
@@ -49,9 +47,7 @@ class DaftarUserController extends Controller
      */
     public function show($id)
     {
-        //menampilkan detail data dengan menemukan/berdasarkan id user
-        $DaftarUser = User::find($id);
-        return view('layouts.admin.detailuser', compact('DaftarUser'), ['page' => 'Detail User']);
+        //
     }
 
     /**
@@ -62,8 +58,8 @@ class DaftarUserController extends Controller
      */
     public function edit($id)
     {
-        $DaftarUser = User::find($id);
-        return view('layouts.admin.useredit', compact('DaftarUser'), ['page' => 'Edit User']);
+        $layaruser = User::all();
+        return view('layouts.user.edituser', compact('layaruser'), ['page' => 'Edit User']);
     }
 
     /**
@@ -73,9 +69,9 @@ class DaftarUserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $DaftarUser)
+    public function update(Request $request, User $layaruser)
     {
-        $this->validate($request, [
+        $request->validate([
             'name' => 'required',
             'nip' => 'required',
             'jabatan' => 'required',
@@ -86,11 +82,24 @@ class DaftarUserController extends Controller
             'profile' => 'required',
         ]);
 
-        $DaftarUser->update($request->all());
+        $layaruser->update($request->all());
 
-        return redirect()->route('daftaruser.index')
-            ->with('updatesuccess', 'User Berhasil diupdate');
+        return redirect()->route('layaruser.index')
+            ->with('updatesuccess', 'User Berhasil Diedit');
 
+            //        $request->validate([
+          //  'no_tiket' => 'required',
+            //'topik' => 'required',
+           // 'judul' => 'required',
+            //'deskripsi' => 'required',
+            //'lampiran' => 'required',
+            //'status' => 'required',
+            //'progres' => 'required'
+        //]);
+        //$permohonan->update($request->all());
+
+  //      return redirect()->route('permohonan.index')
+     //       ->with('updatesuccess', 'Permohonan Berhasil diupdate');
     }
 
     /**
@@ -103,10 +112,4 @@ class DaftarUserController extends Controller
     {
         //
     }
-    
-
-
-    
-
-
 }

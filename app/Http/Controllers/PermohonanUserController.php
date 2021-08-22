@@ -1,12 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Permohonan;
 use Illuminate\Http\Request;
-use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
-class DaftarUserController extends Controller
+class PermohonanUserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +14,8 @@ class DaftarUserController extends Controller
      */
     public function index()
     {
-        $DaftarUser = User::latest()->paginate(5);
-        return view('layouts.admin.users', ['page' => 'Daftar User'], compact('DaftarUser'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+        $permohonanuser = Permohonan::all()->where('user_id',Auth::user()->id);
+        return view('layouts.user.permohonan', compact('permohonanuser'), ['page' => 'Daftar Permohonan']);
     }
 
     /**
@@ -49,9 +47,7 @@ class DaftarUserController extends Controller
      */
     public function show($id)
     {
-        //menampilkan detail data dengan menemukan/berdasarkan id user
-        $DaftarUser = User::find($id);
-        return view('layouts.admin.detailuser', compact('DaftarUser'), ['page' => 'Detail User']);
+        //
     }
 
     /**
@@ -62,8 +58,7 @@ class DaftarUserController extends Controller
      */
     public function edit($id)
     {
-        $DaftarUser = User::find($id);
-        return view('layouts.admin.useredit', compact('DaftarUser'), ['page' => 'Edit User']);
+        //
     }
 
     /**
@@ -73,24 +68,9 @@ class DaftarUserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $DaftarUser)
+    public function update(Request $request, $id)
     {
-        $this->validate($request, [
-            'name' => 'required',
-            'nip' => 'required',
-            'jabatan' => 'required',
-            'instansi' => 'required',
-            'hp' => 'required|numeric|min:8|max:11',
-            'role' => 'required',
-            'email' => 'required',
-            'profile' => 'required',
-        ]);
-
-        $DaftarUser->update($request->all());
-
-        return redirect()->route('daftaruser.index')
-            ->with('updatesuccess', 'User Berhasil diupdate');
-
+        //
     }
 
     /**
@@ -103,10 +83,4 @@ class DaftarUserController extends Controller
     {
         //
     }
-    
-
-
-    
-
-
 }

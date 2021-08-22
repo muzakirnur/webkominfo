@@ -10,6 +10,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DaftarUserController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LayarUserController;
 use App\Http\Controllers\PermohonanUserController;
 use App\Http\Controllers\ProfileController;
 
@@ -79,11 +80,18 @@ Route::group(['middleware' => 'auth'], function () {
                 "page" => "Dashboard User"
             ]);
         });
-        Route::get('user/permohonan', [PermohonanController::class, 'awal'])->name('awal');
-        Route::get('user/akun', [DaftarUserController::class, 'akun'])->name('akun');
-        Route::get('user/tambah', [PermohonanController::class, 'create'])->name('create');
-        Route::post('user/tambah', [PermohonanController::class, 'store']);
-        Route::get('user/edituser', [DaftarUserController::class, 'tampil'])->name('tampil');
+        //Route::get('user/permohonan', [PermohonanController::class, 'awal'])->name('awal');
+        //Route::get('user/akun', [DaftarUserController::class, 'akun'])->name('akun');
+        //Route::get('user/tambah', [PermohonanController::class, 'create'])->name('create');
+        //Route::post('user/tambah', [PermohonanController::class, 'store']);
+        //Route::get('user/edituser', [DaftarUserController::class, 'tampil'])->name('tampil');
+        //Route::post('user/edituser', [DaftarUserController::class, 'uedit']);
+        Route::resource('user', UserController::class);
+        Route::resource('daftaruser', DaftarUserController::class);
+        Route::resource('permohonan', PermohonanController::class);
+        Route::resource('layaruser', LayarUserController::class);
+        Route::resource('permohonanuser', PermohonanUserController::class);
+
     });
 
     Route::get('logout', [LoginController::class, 'logout'])->name('logout');

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
 class UserController extends Controller
 {
@@ -12,4 +13,6 @@ class UserController extends Controller
         $user = Auth::user();
         return view('layouts.user.dashboard', compact('user'));
     }
+
+    
 }
