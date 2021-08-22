@@ -13,6 +13,15 @@
         </div>
     </div>
 @endif
+@if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
 <div class="card shadow mb-3" style="max-width: 540px;margin:auto">
     <div class="card-header" style="background-color: #8FC1D4">
         <h5 class="header-title" style="color:white">Profile Saya</h5>

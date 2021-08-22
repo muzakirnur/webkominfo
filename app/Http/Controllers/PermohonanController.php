@@ -14,6 +14,7 @@ class PermohonanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
         $permohonan = Permohonan::latest()->paginate(5);
@@ -52,18 +53,18 @@ class PermohonanController extends Controller
         $nm = $request->lampiran;
         $namaFile = $nm->getClientOriginalName();
 
-            $dtUpload = new Permohonan;
-            $dtUpload->no_tiket = $request->no_tiket;
-            $dtUpload->user_id = $request->user_id;
-            $dtUpload->topik = $request->topik;
-            $dtUpload->judul = $request->judul;
-            $dtUpload->deskripsi = $request->deskripsi;
-            $dtUpload->lampiran = $namaFile;
-            $dtUpload->status = $request->status;
-            $dtUpload->progres = $request->progres;
+        $dtUpload = new Permohonan;
+        $dtUpload->no_tiket = $request->no_tiket;
+        $dtUpload->user_id = $request->user_id;
+        $dtUpload->topik = $request->topik;
+        $dtUpload->judul = $request->judul;
+        $dtUpload->deskripsi = $request->deskripsi;
+        $dtUpload->lampiran = $namaFile;
+        $dtUpload->status = $request->status;
+        $dtUpload->progres = $request->progres;
 
-            $nm->move(public_path().'/lampiran',$namaFile);
-            $dtUpload->save();
+        $nm->move(public_path() . '/lampiran', $namaFile);
+        $dtUpload->save();
 
 
         return redirect()->back();

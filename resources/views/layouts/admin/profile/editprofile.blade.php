@@ -54,14 +54,7 @@
                     </div>
                     </div>
                     <div class="row justify-content-start">
-                    <div class="col-6 col-sm-4">
-                    <label for="basic-url" class="form-label">role</label>
-                    <div class="input-group mb-3">
-                        <select class="form-select" id="inputGroupSelect02" name="role" id="role" disabled>
-                          <option selected>{{ $UserProfile->role }}</option>
-                        </select>
-                    </div>
-                    </div>
+                    <input type="hidden" name="role" id="role" value="{{ $UserProfile->role }}">
                     <div class="col-6 col-sm-4">
                     <label for="basic-url" class="form-label">Email</label>
                     <div class="input-group mb-3">

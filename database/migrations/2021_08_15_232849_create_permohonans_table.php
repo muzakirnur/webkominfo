@@ -25,10 +25,6 @@ class CreatePermohonansTable extends Migration
             $table->string('progres');
             $table->timestamps();
         });
-
-        // Schema::table('permohonans', function (Blueprint $table) {
-        //     $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
-        // });
     }
 
     /**

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Symfony\Component\HttpFoundation\File\File;
 
 class ProfileController extends Controller
 {
@@ -72,39 +73,41 @@ class ProfileController extends Controller
      */
     public function update(Request $request, User $UserProfile)
     {
+        // $nm = $request->file('profile');
+        // $namaFile = $nm->getClientOriginalName();
 
-        $nm = $request->lampiran;
-        $namaFile = $nm->getClientOriginalName();
-
-        $dtUpload = new User;
-        $dtUpload->name = $request->name;
-        $dtUpload->nip = $request->nip;
-        $dtUpload->jabatan = $request->jabatan;
-        $dtUpload->instansi = $request->instansi;
-        $dtUpload->hp = $request->hp;
-        $dtUpload->role = $request->role;
-        $dtUpload->email = $request->email;
-        $dtUpload->profile = $namaFile;
-
-        $nm->move(public_path() . '/img/user', $namaFile);
-        Auth::user()->$dtUpload->update();
-
-        // return redirect()->back();
-        // $this->validate($request, [
+        // $request->validate([
         //     'name' => 'required',
         //     'nip' => 'required',
+        //     'profile' => 'required',
         //     'jabatan' => 'required',
         //     'instansi' => 'required',
         //     'hp' => 'required',
         //     'role' => 'required',
         //     'email' => 'required',
-        //     $nm = file('profile')->getClientOriginalName(),
         // ]);
-        // $nm->move(public_path() . '/img/user', $nm);
+
+        // $nm->move(public_path() . '/img/user', $namaFile);
         // Auth::user()->update($request->all());
 
+        $nm = $request->profile;
+        $namaFile = $nm->getClientOriginalName();
+
+        $UserProfile = Auth::user();
+        $UserProfile->name = $request->name;
+        $UserProfile->nip = $request->nip;
+        $UserProfile->profile = $namaFile;
+        $UserProfile->jabatan = $request->jabatan;
+        $UserProfile->instansi = $request->instansi;
+        $UserProfile->hp = $request->hp;
+        $UserProfile->role = $request->role;
+        $UserProfile->email = $request->email;
+
+        $nm->move(public_path() . '/img/user', $namaFile);
+        $UserProfile->update();
+
         return redirect()->route('profile.index')
-            ->with('updatesuccess', 'Profile Berhasil diupdate');
+            ->with('updatesuccess', 'Profile Berhasil diupdate', compact('UserProfile'));
     }
 
     /**

@@ -20,9 +20,8 @@
             <div class="input-group mb-3">
                 <input type="text" class="form-control" id="no_tiket" name="no_tiket" aria-describedby="basic-addon3" value="{{ $permohonan->no_tiket }}" readonly>
               </div>
-            <label class="form-label">Nama Pemohon</label>
             <div class="input-group mb-3">
-                <input type="text" class="form-control" id="user_id" name="user_id" aria-describedby="basic-addon3" value="{{ $permohonan->user->name }}" readonly>
+                <input type="hidden" class="form-control" id="user_id" name="user_id" aria-describedby="basic-addon3" value="{{ $permohonan->user->id }}" readonly>
               </div>
             <label class="form-label">Topik</label>
             <div class="input-group mb-3">
