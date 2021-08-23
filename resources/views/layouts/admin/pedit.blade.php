@@ -42,10 +42,12 @@
             <label class="form-label">Status</label>
             <div class="input-group mb-3">
               <select class="form-select" id="status" name="status">
-                <option selected>{{ $permohonan->status }}</option>
-                <option value="Diterima">Diterima</option>
-                <option value="Diproses">Diproses</option>
-                <option value="Ditolak">Ditolak</option>
+                @foreach($permohonan->id as $state)
+                <option selected>{{ $state->name }}</option>
+                <option value="{{ $state->id }}">{{ $state->name }}</option>
+                <option value="Diproses">{{ $state->name }}</option>
+                <option value="Ditolak">{{ $state->name }}</option>
+                @endforeach
               </select>
             </div>
             <label class="form-label">Progres</label>

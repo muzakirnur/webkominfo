@@ -18,7 +18,7 @@ class PermohonanController extends Controller
     public function index()
     {
         $permohonan = Permohonan::latest()->paginate(5);
-        return view('layouts.admin.permohonan', compact('permohonan', 'dikirim'), ['page' => 'Permohonan'])
+        return view('layouts.admin.permohonan', compact('permohonan'), ['page' => 'Permohonan'])
             ->with('i', (request()->input('page', 1) - 1) * 5);
         //$tampil = Permohonan::all();
         //return view('layouts.admin.permohonan', ['tampil' => $tampil, 'page' => 'Permohonan']);
@@ -60,7 +60,7 @@ class PermohonanController extends Controller
         $dtUpload->judul = $request->judul;
         $dtUpload->deskripsi = $request->deskripsi;
         $dtUpload->lampiran = $namaFile;
-        $dtUpload->status = $request->status;
+        $dtUpload->state = $request->status;
         $dtUpload->progres = $request->progres;
 
         $nm->move(public_path() . '/lampiran', $namaFile);
