@@ -26,5 +26,8 @@ class StateSeeder extends Seeder
         \App\Models\State::create([
             'name'    => 'Ditolak',
         ]);
+        \App\Models\State::create([
+            'name'    => 'Selesai',
+        ]);
     }
 }

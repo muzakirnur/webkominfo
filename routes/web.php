@@ -71,10 +71,6 @@ Route::group(['middleware' => 'auth'], function () {
         Route::resource('daftaruser', DaftarUserController::class);
         Route::resource('profile', ProfileController::class);
         Route::resource('password', PasswordController::class);
-        //Route::get('admin/permohonan', [PermohonanController::class, 'index'])->name('index');
-        // Route::get('admin/setting/{id}', [ProfileController::class, 'passwordIndex'])->name('password');
-        // Route::post('admin/setting/{id}', [ProfileController::class, 'passwordUpdate'])->name('password');
-        //Route::post('admin/permohonan/update/{id}', [PermohonanController::class, 'update']);
     });
 
     Route::middleware(['user'])->group(function () {
