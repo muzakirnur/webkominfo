@@ -79,27 +79,34 @@ class LayarUserController extends Controller
             'hp' => 'required',
             'role' => 'required',
             'email' => 'required',
-            'profile' => 'required',
+
+            $nm = $request->profile,
+            $namaFile = $nm->getClientOriginalName(),
         ]);
 
         Auth::user()->update($request->all());
+        $nm->move(public_path().'/user',$namaFile);
 
         return redirect()->route('layaruser.index')
             ->with('updatesuccess', 'Profile Berhasil diupdate');
 
-            //        $request->validate([
-          //  'no_tiket' => 'required',
-            //'topik' => 'required',
-           // 'judul' => 'required',
-            //'deskripsi' => 'required',
-            //'lampiran' => 'required',
-            //'status' => 'required',
-            //'progres' => 'required'
-        //]);
-        //$permohonan->update($request->all());
-
-  //      return redirect()->route('permohonan.index')
-     //       ->with('updatesuccess', 'Permohonan Berhasil diupdate');
+    
+            //     $dtUpload = new Permohonan;
+            //     $dtUpload->no_tiket = $idgen;
+            //     $dtUpload->user_id = $request->user_id;
+            //     $dtUpload->state_id = $request->state_id;
+            //     $dtUpload->topik = $request->topik;
+            //     $dtUpload->judul = $request->judul;
+            //     $dtUpload->deskripsi = $request->deskripsi;
+            //     $dtUpload->lampiran = $namaFile;
+            //     $dtUpload->progres = $request->progres;
+    
+            //     $nm->move(public_path().'/lampiran',$namaFile);
+            //     $dtUpload->save();
+    
+    
+            // return redirect()->route('permohonanuser.index')
+            //     ->with('updatesuccess', 'Permohonan Berhasil Dikirim');
     }
 
     /**

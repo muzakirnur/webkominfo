@@ -3,51 +3,91 @@
 @section('ubody')
 
     <!-- Begin Page Content -->
-    <div class="container">
+
+        <div class="container">
 
         <div class="card shadow mb-4">
-            <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Table Permohonan</h6>
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Profile Saya</h6>
+                </div>
+                <div class="card-body">
+                    
+
+        <div class="row gutters-sm">
+            <div class="col-md-4 mb-3">
+            <div class="card">
+                <div class="card-body">
+                <div class="d-flex flex-column align-items-center text-center">
+                    <img src="/img/user/{{ Auth::user()->profile }}" class="img-profile rounded-circle ml-5" alt="Users Profile" width="150">
+                    <div class="mt-3">
+                        <p class="text-secondary mb-1">{{ Auth::user()->name }}</p>
+                    </div>
+                </div>
+                </div>
             </div>
-            <div class="card-body">
-                
-                
-                <h1 class="h3 mb-2 text-gray-800">Informasi Akun</h1>
-        
-                <ul class="list-group">
-
-                    <label class="">Nama        
-                    <li class="list-group-item" style="border-radius: 1.5em">{{ Auth::user()->name }}</li>
-
-                    </label>
-                    <label class="">Email
-                    <li class="list-group-item" style="border-radius: 1.5em">{{ Auth::user()->email }}</li>
-
-                    </label>
-                    <label class="">NIP
-                    <li class="list-group-item" style="border-radius: 1.5em">{{ Auth::user()->nip }}</li>
-                    
-
-                    </label>
-                    <label class="">Jabatan
-                    <li class="list-group-item" style="border-radius: 1.5em">{{ Auth::user()->jabatan }}</li>
-                    
-
-                    </label>
-                    <label class="">Instansi
-                    <li class="list-group-item" style="border-radius: 1.5em">{{ Auth::user()->instansi }}</li>
-                    
-
-                    </label>
-                    <label class="">No. HP
-                    <li class="list-group-item" style="border-radius: 1.5em">{{ Auth::user()->hp }}</li>
-                </ul>
-
-                <a href="{{ route('layaruser.edit',$layaruser->id) }}">
-                <button class="btn btn-primary btn-user btn-block"></i>
-                    Edit
-                </button></a>
-        </div>
+            
+            </div>
+            <div class="col-md-8">
+            <div class="card mb-3">
+                <div class="card-body">
+                <div class="row">
+                    <div class="col-sm-3">
+                    <h6 class="mb-0">Full Name</h6>
+                    </div>
+                    <li class="col-sm-9 text-secondary"> {{ Auth::user()->name }}
+                    </li>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-sm-3">
+                    <h6 class="mb-0">Email</h6>
+                    </div>
+                    <li class="col-sm-9 text-secondary"> {{ Auth::user()->email }}
+                    </li>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-sm-3">
+                    <h6 class="mb-0">NIP</h6>
+                    </div>
+                    <li class="col-sm-9 text-secondary"> {{ Auth::user()->nip }}
+                    </li>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-sm-3">
+                    <h6 class="mb-0">Jabatan</h6>
+                    </div>
+                    <li class="col-sm-9 text-secondary"> {{ Auth::user()->jabatan }}
+                    </li>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-sm-3">
+                    <h6 class="mb-0">Instansi</h6>
+                    </div>
+                    <li class="col-sm-9 text-secondary"> {{ Auth::user()->instansi }}
+                    </li>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-sm-3">
+                    <h6 class="mb-0">No. HP</h6>
+                    </div>
+                    <li class="col-sm-9 text-secondary"> {{ Auth::user()->instansi }}
+                    </li>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <a href="{{ route('layaruser.edit', $layaruser->id) }}">
+                            <button class="btn btn-primary"><i class="fas fa-edit"></i>
+                                Edit
+                            </button></a></td>
+                    </div>
+                </div>
+                </div>
+            </div>
 
     </div>
 @endsection
