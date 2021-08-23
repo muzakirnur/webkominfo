@@ -49,8 +49,7 @@ class PermohonanUserController extends Controller
      */
     public function show($id)
     {
-        $permohonanuser = Permohonan::all()->where('user_id',Auth::user()->id)-> where('state_id', '3');
-        return view('layouts.user.ditolak', compact('permohonanuser'), ['page' => 'Permohonan Ditolak']);
+        
     }
 
     /**
