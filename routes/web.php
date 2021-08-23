@@ -11,6 +11,7 @@ use App\Http\Controllers\DaftarUserController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LayarUserController;
+use App\Http\Controllers\PasswordController;
 use App\Http\Controllers\PermohonanUserController;
 use App\Http\Controllers\ProfileController;
 
@@ -69,9 +70,10 @@ Route::group(['middleware' => 'auth'], function () {
         Route::resource('permohonan', PermohonanController::class);
         Route::resource('daftaruser', DaftarUserController::class);
         Route::resource('profile', ProfileController::class);
+        Route::resource('password', PasswordController::class);
         //Route::get('admin/permohonan', [PermohonanController::class, 'index'])->name('index');
-        Route::get('admin/setting/{id}', [ProfileController::class, 'passwordIndex'])->name('password');
-        Route::post('admin/setting/{id}', [ProfileController::class, 'passwordUpdate'])->name('password');
+        // Route::get('admin/setting/{id}', [ProfileController::class, 'passwordIndex'])->name('password');
+        // Route::post('admin/setting/{id}', [ProfileController::class, 'passwordUpdate'])->name('password');
         //Route::post('admin/permohonan/update/{id}', [PermohonanController::class, 'update']);
     });
 
@@ -92,7 +94,6 @@ Route::group(['middleware' => 'auth'], function () {
         Route::resource('permohonan', PermohonanController::class);
         Route::resource('layaruser', LayarUserController::class);
         Route::resource('permohonanuser', PermohonanUserController::class);
-
     });
 
     Route::get('logout', [LoginController::class, 'logout'])->name('logout');
