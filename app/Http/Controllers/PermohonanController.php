@@ -14,6 +14,7 @@ class PermohonanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
         $permohonan = Permohonan::latest()->paginate(5);
@@ -48,6 +49,7 @@ class PermohonanController extends Controller
         $idgen = time().rand(100,999);
         $namaFile = $nm->getClientOriginalName();
 
+<<<<<<< HEAD
             $dtUpload = new Permohonan;
             $dtUpload->no_tiket = $idgen;
             $dtUpload->user_id = $request->user_id;
@@ -60,6 +62,20 @@ class PermohonanController extends Controller
 
             $nm->move(public_path().'/lampiran',$namaFile);
             $dtUpload->save();
+=======
+        $dtUpload = new Permohonan;
+        $dtUpload->no_tiket = $request->no_tiket;
+        $dtUpload->user_id = $request->user_id;
+        $dtUpload->topik = $request->topik;
+        $dtUpload->judul = $request->judul;
+        $dtUpload->deskripsi = $request->deskripsi;
+        $dtUpload->lampiran = $namaFile;
+        $dtUpload->state = $request->status;
+        $dtUpload->progres = $request->progres;
+
+        $nm->move(public_path() . '/lampiran', $namaFile);
+        $dtUpload->save();
+>>>>>>> 38becfa42095ffa285faa51f81a62c1e12ebd300
 
 
         return redirect()->route('permohonanuser.index')

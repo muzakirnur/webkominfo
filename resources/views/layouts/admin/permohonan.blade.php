@@ -45,7 +45,7 @@
                                 <td>{{ $row->user->name }}</td>
                                 <td>{{ $row->created_at->format('d-m-Y') }}</td>
                                 <td>{{ $row->topik }}</td>
-                                <th>{{ $row->status }}</th>
+                                <th>{{ $row->state->name}}</th>
                                 <td><a href="{{ route('permohonan.show', $row->id) }}">
                                     <button class="btn btn-success"><i class="fas fa-eye"></i>
                                         Show

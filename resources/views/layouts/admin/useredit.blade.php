@@ -9,10 +9,9 @@
             </div>
             <div class="card-body">
                 <div class="row g-3">
-                <form action="{{ route('daftaruser.update',$DaftarUser->id) }}" method="post">
+                <form action="{{ route('daftaruser.update',$DaftarUser->id) }}" method="POST">
                     @csrf
                     @method('PUT')
-                    <input type="hidden" value="{{ $DaftarUser->id }}" id="id" name="id">
                     <div class="row justify-content-start">
                     <div class="col-6 col-sm-4">
                     <label for="basic-url" class="form-label">Nama</label>

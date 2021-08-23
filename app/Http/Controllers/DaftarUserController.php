@@ -73,24 +73,28 @@ class DaftarUserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $DaftarUser)
+    public function update(Request $request, User $DaftarUser, $id)
     {
-        $this->validate($request, [
+        $DaftarUser = User::find($id);
+        $request->validate([
             'name' => 'required',
             'nip' => 'required',
             'jabatan' => 'required',
             'instansi' => 'required',
-            'hp' => 'required|numeric|min:8|max:11',
+            'hp' => 'required',
             'role' => 'required',
             'email' => 'required',
-            'profile' => 'required',
+            'profile' => 'required'
         ]);
 
         $DaftarUser->update($request->all());
 
         return redirect()->route('daftaruser.index')
             ->with('updatesuccess', 'User Berhasil diupdate');
+<<<<<<< HEAD
 
+=======
+>>>>>>> 38becfa42095ffa285faa51f81a62c1e12ebd300
     }
 
     /**
@@ -103,10 +107,25 @@ class DaftarUserController extends Controller
     {
         //
     }
+<<<<<<< HEAD
     
 
 
     
 
 
+=======
+
+    public function tampil()
+    {
+        $tampil = User::all();
+        return view('layouts.user.edituser', ['tampil' => $tampil, 'page' => 'Edit User']);
+    }
+
+    public function akun()
+    {
+        $tampil = User::all();
+        return view('layouts.user.akun', ['tampil' => $tampil, 'page' => 'Akun Saya']);
+    }
+>>>>>>> 38becfa42095ffa285faa51f81a62c1e12ebd300
 }

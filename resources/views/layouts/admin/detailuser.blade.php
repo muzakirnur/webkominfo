@@ -24,7 +24,7 @@
     <div class="card-footer mt-5 bg-info text-center">
         <div class="row">
         <div class="col">
-    <a href="{{ route('daftaruser.index') }}" class="btn btn-light shadow-sm"><i class="fas fa-chevron-left"></i> Kembali</a></div>
+    <a href="{{ route('daftaruser.index',$DaftarUser->id) }}" class="btn btn-light shadow-sm"><i class="fas fa-chevron-left"></i> Kembali</a></div>
     </div>
     </div>
 </div>

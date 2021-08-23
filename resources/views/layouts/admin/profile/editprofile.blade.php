@@ -10,7 +10,7 @@
             </div>
             <div class="card-body">
                 <div class="row g-3">
-                <form action="{{ route('profile.update',$UserProfile->id) }}" method="post">
+                <form action="{{ route('profile.update',$UserProfile->id) }}" method="post" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="row justify-content-start">
@@ -29,7 +29,7 @@
                     <div class="col-6 col-sm-4">
                     <label for="basic-url" class="form-label">Profile</label>
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" id="profile" name="profile" value="{{ $UserProfile->profile }}" readonly>
+                        <input type="file" class="form-control" id="profile" name="profile" value="{{ $UserProfile->profile }}">
                     </div>
                     </div>
                     </div>
@@ -54,16 +54,7 @@
                     </div>
                     </div>
                     <div class="row justify-content-start">
-                    <div class="col-6 col-sm-4">
-                    <label for="basic-url" class="form-label">role</label>
-                    <div class="input-group mb-3">
-                        <select class="form-select" id="inputGroupSelect02" name="role" id="role">
-                          <option selected>{{ $UserProfile->role }}</option>
-                          <option value="admin">admin</option>
-                          <option value="user">user</option>
-                        </select>
-                    </div>
-                    </div>
+                    <input type="hidden" name="role" id="role" value="{{ $UserProfile->role }}">
                     <div class="col-6 col-sm-4">
                     <label for="basic-url" class="form-label">Email</label>
                     <div class="input-group mb-3">
