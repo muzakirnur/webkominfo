@@ -6,7 +6,7 @@
     <div class="container">
 
         <!-- Page Heading -->
-        <h1 class="h3 mb-2 text-gray-800">Daftar Permohonan</h1>
+        <h1 class="h3 mb-2 text-gray-800">Permohonan Dikirim</h1>
 
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
@@ -48,7 +48,7 @@
                                 <td>{{ $row->judul }}</td>
                                 <td>{{ $row->deskripsi }}</td>
                                 <td>{{ $row->lampiran }}</td>
-                                <th>{{ $row->state_id }}</th>
+                                <th>{{ $row->state->name  }}</th>
                                 <th>{{ $row->progres }}</th>
                                 <th>{{ $row->created_at->format('d-m-Y') }}</th>
                             </tr>

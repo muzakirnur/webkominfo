@@ -16,12 +16,12 @@
         Menu
     </div>
 
-    <!-- Nav Item - Akun Saya -->
+    {{-- <!-- Nav Item - Akun Saya -->
     <li class="nav-item {{ ($page === "Akun Saya") ? 'active' : ''}}">
         <a class="nav-link" href="{{ route('layaruser.index') }}">
             <i class="fas fa-fw fa-id-card-alt"></i>
             <span>Akun Saya</span></a>
-    </li>
+    </li> --}}
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item {{ ($page === "Dashboard User") ? 'active' : ''}}">
@@ -48,10 +48,11 @@
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Daftar Permohonan</h6>
-                <a class="collapse-item" {{ $page === "Daftar Permohonan" }} href="{{ route('permohonanuser.index') }}">Permohonan Terkirim</a>
-                <a class="collapse-item" href="utilities-border.html">Konfirmasi</a>
-                <a class="collapse-item" href="utilities-animation.html">Ditolak</a>
-                <a class="collapse-item" href="utilities-other.html">Selesai</a>
+                <a class="collapse-item" href="{{ route('permohonanuser.index') }}">Permohonan Terkirim</a>
+                <a class="collapse-item" href="{{ route('permohonanuser.create') }}">Permohonan Diterima</a>
+                <a class="collapse-item" href="{{ route('indexpermohonan.index') }}">Permohonan Ditolak</a>
+                <a class="collapse-item" href="{{ route('indexpermohonan.create') }}">Permohonan Diproses</a>
+                <a class="collapse-item" href="{{ route('permohonanselesai.index') }}">Permohonan Selesai</a>
             </div>
         </div>
     </li>

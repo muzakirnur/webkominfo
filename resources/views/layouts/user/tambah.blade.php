@@ -13,7 +13,7 @@
 
                     <input type="hidden" class="form-control" id="exampleFormControlInput1" value="{{ Auth::user()->id }}" name="user_id" readonly>
 
-                    <input type="hidden" class="form-control" name="state_id" value="1" readonly>
+                    <input type="hidden" class="form-control" name="state_id" value="5" readonly>
             
             <div class="form-group">
                 <label >Kategori</label>

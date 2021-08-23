@@ -10,7 +10,9 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DaftarUserController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\IndexPermohonanController;
 use App\Http\Controllers\LayarUserController;
+use App\Http\Controllers\PermohonanSelesaiControler;
 use App\Http\Controllers\PermohonanUserController;
 use App\Http\Controllers\ProfileController;
 
@@ -92,6 +94,8 @@ Route::group(['middleware' => 'auth'], function () {
         Route::resource('permohonan', PermohonanController::class);
         Route::resource('layaruser', LayarUserController::class);
         Route::resource('permohonanuser', PermohonanUserController::class);
+        Route::resource('indexpermohonan', IndexPermohonanController::class);
+        Route::resource('permohonanselesai', PermohonanSelesaiControler::class);
 
     });
 

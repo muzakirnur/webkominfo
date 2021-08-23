@@ -14,8 +14,8 @@ class PermohonanUserController extends Controller
      */
     public function index()
     {
-        $permohonanuser = Permohonan::all()->where('user_id',Auth::user()->id);
-        return view('layouts.user.permohonan', compact('permohonanuser'), ['page' => 'Daftar Permohonan']);
+        $permohonanuser = Permohonan::all()->where('user_id',Auth::user()->id)-> where('state_id', '1');
+        return view('layouts.user.permohonan', compact('permohonanuser'), ['page' => 'Permohonan Dikirim']);
     }
 
     /**
@@ -25,7 +25,9 @@ class PermohonanUserController extends Controller
      */
     public function create()
     {
-        //
+        
+        $permohonanuser = Permohonan::all()->where('user_id',Auth::user()->id)-> where('state_id', '2');
+        return view('layouts.user.diterima', compact('permohonanuser'), ['page' => 'Permohonan Diterima']);
     }
 
     /**
@@ -47,7 +49,8 @@ class PermohonanUserController extends Controller
      */
     public function show($id)
     {
-        //
+        $permohonanuser = Permohonan::all()->where('user_id',Auth::user()->id)-> where('state_id', '3');
+        return view('layouts.user.ditolak', compact('permohonanuser'), ['page' => 'Permohonan Ditolak']);
     }
 
     /**
@@ -58,7 +61,7 @@ class PermohonanUserController extends Controller
      */
     public function edit($id)
     {
-        //
+        
     }
 
     /**

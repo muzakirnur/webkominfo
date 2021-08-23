@@ -91,10 +91,6 @@ class DaftarUserController extends Controller
 
         return redirect()->route('daftaruser.index')
             ->with('updatesuccess', 'User Berhasil diupdate');
-<<<<<<< HEAD
-
-=======
->>>>>>> 38becfa42095ffa285faa51f81a62c1e12ebd300
     }
 
     /**
@@ -107,14 +103,6 @@ class DaftarUserController extends Controller
     {
         //
     }
-<<<<<<< HEAD
-    
-
-
-    
-
-
-=======
 
     public function tampil()
     {
@@ -127,5 +115,4 @@ class DaftarUserController extends Controller
         $tampil = User::all();
         return view('layouts.user.akun', ['tampil' => $tampil, 'page' => 'Akun Saya']);
     }
->>>>>>> 38becfa42095ffa285faa51f81a62c1e12ebd300
 }
