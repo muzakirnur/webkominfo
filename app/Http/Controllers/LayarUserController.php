@@ -1,12 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 
-class DaftarUserController extends Controller
+class LayarUserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +14,8 @@ class DaftarUserController extends Controller
      */
     public function index()
     {
-        $DaftarUser = User::latest()->paginate(5);
-        return view('layouts.admin.users', ['page' => 'Daftar User'], compact('DaftarUser'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+        $layaruser = Auth::user();
+        return view('layouts.user.akun', compact('layaruser'), ['page' => 'Akun Saya']);
     }
 
     /**
@@ -49,9 +47,7 @@ class DaftarUserController extends Controller
      */
     public function show($id)
     {
-        //menampilkan detail data dengan menemukan/berdasarkan id user
-        $DaftarUser = User::find($id);
-        return view('layouts.admin.detailuser', compact('DaftarUser'), ['page' => 'Detail User']);
+        //
     }
 
     /**
@@ -62,8 +58,8 @@ class DaftarUserController extends Controller
      */
     public function edit($id)
     {
-        $DaftarUser = User::find($id);
-        return view('layouts.admin.useredit', compact('DaftarUser'), ['page' => 'Edit User']);
+        $layaruser = User::find($id);
+        return view('layouts.user.edituser', compact('layaruser'), ['page' => 'Edit User']);
     }
 
     /**
@@ -73,10 +69,9 @@ class DaftarUserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $DaftarUser, $id)
+    public function update(Request $request)
     {
-        $DaftarUser = User::find($id);
-        $request->validate([
+        $this->validate($request, [
             'name' => 'required',
             'nip' => 'required',
             'jabatan' => 'required',
@@ -84,17 +79,34 @@ class DaftarUserController extends Controller
             'hp' => 'required',
             'role' => 'required',
             'email' => 'required',
-            'profile' => 'required'
+
+            $nm = $request->profile,
+            $namaFile = $nm->getClientOriginalName(),
         ]);
 
-        $DaftarUser->update($request->all());
+        Auth::user()->update($request->all());
+        $nm->move(public_path().'/user',$namaFile);
 
-        return redirect()->route('daftaruser.index')
-            ->with('updatesuccess', 'User Berhasil diupdate');
-<<<<<<< HEAD
+        return redirect()->route('layaruser.index')
+            ->with('updatesuccess', 'Profile Berhasil diupdate');
 
-=======
->>>>>>> 38becfa42095ffa285faa51f81a62c1e12ebd300
+    
+            //     $dtUpload = new Permohonan;
+            //     $dtUpload->no_tiket = $idgen;
+            //     $dtUpload->user_id = $request->user_id;
+            //     $dtUpload->state_id = $request->state_id;
+            //     $dtUpload->topik = $request->topik;
+            //     $dtUpload->judul = $request->judul;
+            //     $dtUpload->deskripsi = $request->deskripsi;
+            //     $dtUpload->lampiran = $namaFile;
+            //     $dtUpload->progres = $request->progres;
+    
+            //     $nm->move(public_path().'/lampiran',$namaFile);
+            //     $dtUpload->save();
+    
+    
+            // return redirect()->route('permohonanuser.index')
+            //     ->with('updatesuccess', 'Permohonan Berhasil Dikirim');
     }
 
     /**
@@ -107,25 +119,4 @@ class DaftarUserController extends Controller
     {
         //
     }
-<<<<<<< HEAD
-    
-
-
-    
-
-
-=======
-
-    public function tampil()
-    {
-        $tampil = User::all();
-        return view('layouts.user.edituser', ['tampil' => $tampil, 'page' => 'Edit User']);
-    }
-
-    public function akun()
-    {
-        $tampil = User::all();
-        return view('layouts.user.akun', ['tampil' => $tampil, 'page' => 'Akun Saya']);
-    }
->>>>>>> 38becfa42095ffa285faa51f81a62c1e12ebd300
 }

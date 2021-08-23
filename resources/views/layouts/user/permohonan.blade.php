@@ -18,7 +18,6 @@
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr class="table-primary">
-                                <th>No.</th>
                                 <th>No.Tiket</th>
                                 <th>Topik</th>
                                 <th>Judul Permasalahan</th>
@@ -31,7 +30,6 @@
                         </thead>
                         <tfoot>
                             <tr class="table-primary">
-                                <th>No.</th>
                                 <th>No.Tiket</th>
                                 <th>Topik</th>
                                 <th>Judul Permasalahan</th>
@@ -43,17 +41,16 @@
                             </tr>
                         </tfoot>
                         <tbody>
-                            @foreach ($tampil as $row)
+                            @foreach ($permohonanuser as $row)
                             <tr>
-                                <td>{{ $row->id }}</td>
                                 <td>{{ $row->no_tiket }}</td>
                                 <td>{{ $row->topik }}</td>
                                 <td>{{ $row->judul }}</td>
                                 <td>{{ $row->deskripsi }}</td>
                                 <td>{{ $row->lampiran }}</td>
-                                <th>{{ $row->status }}</th>
+                                <th>{{ $row->state_id }}</th>
                                 <th>{{ $row->progres }}</th>
-                                <th>{{ $row->created_at }}</th>
+                                <th>{{ $row->created_at->format('d-m-Y') }}</th>
                             </tr>
                             @endforeach
                         </tbody>

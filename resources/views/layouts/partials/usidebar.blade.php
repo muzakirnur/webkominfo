@@ -18,21 +18,21 @@
 
     <!-- Nav Item - Akun Saya -->
     <li class="nav-item {{ ($page === "Akun Saya") ? 'active' : ''}}">
-        <a class="nav-link" href="/user/akun">
+        <a class="nav-link" href="{{ route('layaruser.index') }}">
             <i class="fas fa-fw fa-id-card-alt"></i>
             <span>Akun Saya</span></a>
     </li>
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item {{ ($page === "Dashboard User") ? 'active' : ''}}">
-        <a class="nav-link" href="/user/dashboard">
+        <a class="nav-link" href="{{ route('home') }}">
             <i class="fas fa-fw fa-columns"></i>
             <span>Dashboard</span></a>
     </li>
 
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item {{ ($page === "Tambah Permohonan")  ? 'active' : '' }}">
-        <a class="nav-link collapsed" href="/user/tambah">
+        <a class="nav-link collapsed" href="{{ route('permohonan.create') }}">
             <i class="fas fa-file-alt fa-cog"></i>
             <span>Tambah Permohonan</span>
         </a>
@@ -48,7 +48,7 @@
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Daftar Permohonan</h6>
-                <a class="collapse-item" href="/user/permohonan">Permohonan Terkirim</a>
+                <a class="collapse-item" {{ $page === "Daftar Permohonan" }} href="{{ route('permohonanuser.index') }}">Permohonan Terkirim</a>
                 <a class="collapse-item" href="utilities-border.html">Konfirmasi</a>
                 <a class="collapse-item" href="utilities-animation.html">Ditolak</a>
                 <a class="collapse-item" href="utilities-other.html">Selesai</a>

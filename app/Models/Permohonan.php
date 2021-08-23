@@ -12,11 +12,11 @@ class Permohonan extends Model
     protected $fillable = [
         'no_tiket',
         'user_id',
+        'state_id',
         'topik',
         'judul',
         'deskripsi',
         'lampiran',
-        'status',
         'progres',
     ];
 
@@ -25,8 +25,14 @@ class Permohonan extends Model
         return $this->belongsTo('App\Models\User');
     }
 
+<<<<<<< HEAD
+    public function status()
+    {
+        return $this->belongsTo(State::class);
+=======
     public function state()
     {
         return $this->belongsTo('App\Models\State');
+>>>>>>> 38becfa42095ffa285faa51f81a62c1e12ebd300
     }
 }
