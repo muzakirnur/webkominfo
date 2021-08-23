@@ -46,36 +46,21 @@ class PermohonanController extends Controller
     public function store(Request $request)
     {
         $nm = $request->lampiran;
-        $idgen = time().rand(100,999);
+        $idgen = time() . rand(100, 999);
         $namaFile = $nm->getClientOriginalName();
 
-<<<<<<< HEAD
-            $dtUpload = new Permohonan;
-            $dtUpload->no_tiket = $idgen;
-            $dtUpload->user_id = $request->user_id;
-            $dtUpload->state_id = $request->state_id;
-            $dtUpload->topik = $request->topik;
-            $dtUpload->judul = $request->judul;
-            $dtUpload->deskripsi = $request->deskripsi;
-            $dtUpload->lampiran = $namaFile;
-            $dtUpload->progres = $request->progres;
-
-            $nm->move(public_path().'/lampiran',$namaFile);
-            $dtUpload->save();
-=======
         $dtUpload = new Permohonan;
-        $dtUpload->no_tiket = $request->no_tiket;
+        $dtUpload->no_tiket = $idgen;
         $dtUpload->user_id = $request->user_id;
+        $dtUpload->state_id = $request->state_id;
         $dtUpload->topik = $request->topik;
         $dtUpload->judul = $request->judul;
         $dtUpload->deskripsi = $request->deskripsi;
         $dtUpload->lampiran = $namaFile;
-        $dtUpload->state = $request->status;
         $dtUpload->progres = $request->progres;
 
         $nm->move(public_path() . '/lampiran', $namaFile);
         $dtUpload->save();
->>>>>>> 38becfa42095ffa285faa51f81a62c1e12ebd300
 
 
         return redirect()->route('permohonanuser.index')
