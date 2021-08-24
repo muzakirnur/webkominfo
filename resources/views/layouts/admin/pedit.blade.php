@@ -31,6 +31,10 @@
             <div class="input-group mb-3">
                 <input type="text" class="form-control" id="judul" name="judul" aria-describedby="basic-addon3" value="{{ $permohonan->judul }}" readonly>
               </div>
+            <label class="form-label">Peruntukan</label>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" id="judul" name="judul" aria-describedby="basic-addon3" value="{{ $permohonan->peruntukan }}" readonly>
+              </div>
             <label class="form-label">Deskripsi</label>
             <div class="input-group mb-3">
                 <textarea class="form-control" id="deskripsi" name="deskripsi" aria-describedby="basic-addon3" value="" readonly>{{ $permohonan->deskripsi }}</textarea>

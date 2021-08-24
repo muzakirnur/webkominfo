@@ -37,32 +37,38 @@
                     </div>
                     </div>
                     <div class="col-6 col-sm-4">
+                    <label for="basic-url" class="form-label">Peruntukan</label>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" id="instansi" name="instansi" value="{{ $permohonan->peruntukan }}" readonly>
+                    </div>
+                    </div>
+                    <div class="col-6 col-sm-4">
                     <label for="basic-url" class="form-label">Judul</label>
                     <div class="input-group mb-3">
                         <input type="text" class="form-control" id="instansi" name="instansi" value="{{ $permohonan->judul }}" readonly>
                     </div>
                     </div>
-                    <div class="col-6 col-sm-4">
-                    <label for="basic-url" class="form-label">lampiran</label>
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control" id="email" name="email" value="{{ $permohonan->lampiran }}" readonly>
-                        <a href="/lampiran/{{ $permohonan->lampiran }}" class="btn btn-primary"><i class="fas fa-arrow-down"></i> Download</a>
-                    </div>
-                    </div>
                     </div>
                     <div class="row">
-                    <div class="col-6 col-sm-4">
-                    <label for="basic-url" class="form-label">Status</label>
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control" id="hp" name="hp" value="{{ $permohonan->state->name }}" readonly>
-                    </div>
-                    </div>
-                    <div class="col-6 col-sm-4">
-                    <label for="basic-url" class="form-label">Progres</label>
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control" id="email" name="email" value="{{ $permohonan->progres }}" readonly>
-                    </div>
-                    </div>
+                        <div class="col-6 col-sm-4">
+                            <label for="basic-url" class="form-label">Status</label>
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" id="hp" name="hp" value="{{ $permohonan->state->name }}" readonly>
+                            </div>
+                        </div>
+                        <div class="col-6 col-sm-4">
+                            <label for="basic-url" class="form-label">Progres</label>
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" id="email" name="email" value="{{ $permohonan->progres }}" readonly>
+                            </div>
+                        </div>
+                        <div class="col-6 col-sm-4">
+                        <label for="basic-url" class="form-label">lampiran</label>
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" id="email" name="email" value="{{ $permohonan->lampiran }}" readonly>
+                            <a href="/lampiran/{{ $permohonan->lampiran }}" class="btn btn-primary"><i class="fas fa-arrow-down"></i> Download</a>
+                        </div>
+                        </div>
                     </div>
                     <div class="card-footer">
                         <div class="row row-cols-lg-1 justify-content-between mx-auto">
