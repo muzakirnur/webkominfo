@@ -44,10 +44,7 @@
                         </form>
                         <hr>
                         <div class="text-center">
-                            <a class="small" href="{{ route('forget.get') }}">Lupa Password ?</a>
-                        </div>
-                        <div class="text-center">
-                            <a class="small" href="/register">Buat Akun !</a>
+                            <span>Belum Punya Akun ?</span><a class="small" href="/register"> Daftar Sekarang</a>
                         </div>
                     </div>
                 </div>

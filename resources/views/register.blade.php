@@ -59,10 +59,7 @@
                         </form>
                         <hr>
                         <div class="text-center">
-                            <a class="small" href="/forgot">Forgot Password?</a>
-                        </div>
-                        <div class="text-center">
-                            <a class="small" href="/login">Already have an account? Login!</a>
+                            <span>Sudah Punya Akun ? </span><a class="small" href="/login">Login !</a>
                         </div>
                     </div>
                 </div>
