@@ -14,6 +14,7 @@ class Permohonan extends Model
         'user_id',
         'state_id',
         'topik',
+        'peruntukan',
         'judul',
         'deskripsi',
         'lampiran',

@@ -11,6 +11,6 @@ class State extends Model
 
     public function state()
     {
-        return $this->belongsTo('App\Models\State');
+        return $this->hasMany('App\Models\State');
     }
 }

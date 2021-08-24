@@ -55,6 +55,7 @@ class PermohonanController extends Controller
         $dtUpload->user_id = $request->user_id;
         $dtUpload->state_id = $request->state_id;
         $dtUpload->topik = $request->topik;
+        $dtUpload->peruntukan = $request->peruntukan;
         $dtUpload->judul = $request->judul;
         $dtUpload->deskripsi = $request->deskripsi;
         $dtUpload->lampiran = $namaFile;
@@ -109,6 +110,7 @@ class PermohonanController extends Controller
             'judul' => 'required',
             'deskripsi' => 'required',
             'lampiran' => 'required',
+            'peruntukan' => 'required',
             'state_id' => 'required',
             'progres' => 'required'
         ]);

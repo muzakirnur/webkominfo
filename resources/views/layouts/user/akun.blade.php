@@ -18,7 +18,7 @@
             <div class="card">
                 <div class="card-body">
                 <div class="d-flex flex-column align-items-center text-center">
-                    <img src="/img/user/{{ Auth::user()->profile }}" class="img-profile rounded-circle ml-5" alt="Users Profile" width="150">
+                    <img src="https://bootdey.com/img/Content/avatar/avatar7.png" class="rounded-circle"  alt="Users Profile" width="150">
                     <div class="mt-3">
                         <p class="text-secondary mb-1">{{ Auth::user()->name }}</p>
                     </div>
@@ -32,7 +32,7 @@
                 <div class="card-body">
                 <div class="row">
                     <div class="col-sm-3">
-                    <h6 class="mb-0">Full Name</h6>
+                    <h6 class="mb-0">Username</h6>
                     </div>
                     <li class="col-sm-9 text-secondary"> {{ Auth::user()->name }}
                     </li>
@@ -74,7 +74,7 @@
                     <div class="col-sm-3">
                     <h6 class="mb-0">No. HP</h6>
                     </div>
-                    <li class="col-sm-9 text-secondary"> {{ Auth::user()->instansi }}
+                    <li class="col-sm-9 text-secondary"> {{ Auth::user()->hp }}
                     </li>
                 </div>
                 <hr>

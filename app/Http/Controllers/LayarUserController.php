@@ -85,7 +85,7 @@ class LayarUserController extends Controller
         ]);
 
         Auth::user()->update($request->all());
-        $nm->move(public_path().'/user',$namaFile);
+        $nm->move(public_path().'/img/user',$namaFile);
 
         return redirect()->route('layaruser.index')
             ->with('updatesuccess', 'Profile Berhasil diupdate');

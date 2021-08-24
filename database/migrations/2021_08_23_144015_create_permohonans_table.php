@@ -19,6 +19,7 @@ class CreatePermohonansTable extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('no_tiket');
             $table->string('topik');
+            $table->string('peruntukan');
             $table->string('judul');
             $table->string('deskripsi');
             $table->string('lampiran');
