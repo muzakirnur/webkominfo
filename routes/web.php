@@ -95,7 +95,6 @@ Route::group(['middleware' => 'auth'], function () {
         //Route::post('user/edituser', [DaftarUserController::class, 'uedit']);
         Route::resource('user', UserController::class);
         Route::resource('daftaruser', DaftarUserController::class);
-        Route::resource('permohonan', PermohonanController::class);
         Route::resource('layaruser', LayarUserController::class);
         Route::resource('permohonanuser', PermohonanUserController::class);
         Route::resource('indexpermohonan', IndexPermohonanController::class);

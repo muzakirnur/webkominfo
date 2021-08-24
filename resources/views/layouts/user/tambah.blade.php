@@ -5,7 +5,7 @@
     <!-- Begin Page Content -->
     <div class="container">
 
-        <form action="{{ route('permohonan.store') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('permohonanuser.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
 

@@ -25,7 +25,8 @@ class PermohonanSelesaiControler extends Controller
      */
     public function create()
     {
-        //
+        $permohonan = Permohonan::all();
+        return view('layouts.user.tambah', compact('permohonan'), ['page' => 'Tambah Permohonan']);
     }
 
     /**
