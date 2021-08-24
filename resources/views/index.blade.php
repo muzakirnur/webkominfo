@@ -129,22 +129,22 @@
                     <li class="menubar parent">
                         <a class="" data-parent="#menu" href="#27" data-toggle="collapse"><img
                                 src="https://layanan.kominfo.go.id/images/icon/landing/perijinan.png" alt=""></a>
-                        <span class="title">PERIZINAN</span>
+                        <span class="title">LOCALHOST</span>
                     </li>
                     <li class="menubar parent">
                         <a class="" data-parent="#menu" href="#12" data-toggle="collapse"><img
                                 src="https://layanan.kominfo.go.id/images/icon/landing/sertifikasi.png" alt=""></a>
-                        <span class="title">SERTIFIKASI</span>
+                        <span class="title">MENARA TRIANGLE</span>
                     </li>
                     <li class="menubar">
                         <a class="" href="login"><img
                                 src="https://layanan.kominfo.go.id/images/icon/landing/aduan-konten.png" alt=""></a>
-                        <span class="title">ADUAN KONTEN</span>
+                        <span class="title">VPN</span>
                     </li>
                     <li class="menubar">
                         <a class="" href="https://layanan.kominfo.go.id/microsite/aduan-brti"><img
                                 src="https://layanan.kominfo.go.id/images/icon/landing/helpdesk.png" alt=""></a>
-                        <span class="title">ADUAN BRTI</span>
+                        <span class="title">VPS</span>
                     </li>
                 </ul>
             </div>

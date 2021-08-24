@@ -1,12 +1,12 @@
 <!-- Sidebar -->
-<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+<ul class="navbar-nav bg-gradient-secondary sidebar sidebar-dark accordion" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('home') }}">
         <div class="sidebar-brand-icon">
-            <i class="fas fa-laptop-house"></i>
+            <img src="/img/kominfo2.png" style="width: 60%;margin-left:5px"/>
         </div>
-        <div class="sidebar-brand-text mx-3">Kominfo</div>
+        <div class="sidebar-brand-text" style="color:#28166F;font-size:12pt">Kominfo</div>
     </a>
 
     <!-- Divider -->
