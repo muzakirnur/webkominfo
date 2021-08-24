@@ -13,7 +13,7 @@ i made this project for Field work practice report.
 This project is using laravel 8 with feature submit "Permohonan" like "Ticket" to government agencies.
 Don't Foget to give me a star. Thankyou
 
-## Instalation
+## Installation
 
 1. Run <code>git clone https://github.com/muzakirnur/webkominfo.git webkominfo </code>
 2. Copy file or rename file <code>.env.example</code> to <code>.env</code>
