@@ -10,13 +10,10 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DaftarUserController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PermohonanSelesaiControler;
 use App\Http\Controllers\IndexPermohonanController;
 use App\Http\Controllers\LayarUserController;
-<<<<<<< HEAD
-use App\Http\Controllers\PermohonanSelesaiControler;
-=======
 use App\Http\Controllers\PasswordController;
->>>>>>> bf43fbe3c72a95c185996840284f1d163caf9d6c
 use App\Http\Controllers\PermohonanUserController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ForgotPasswordController;

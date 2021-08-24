@@ -20,6 +20,7 @@
                             <tr class="table-primary">
                                 <th>No.Tiket</th>
                                 <th>Topik</th>
+                                <th>Peruntukan</th>
                                 <th>Judul Permasalahan</th>
                                 <th>Deskripsi</th>
                                 <th>Lampiran</th>
@@ -32,6 +33,7 @@
                             <tr class="table-primary">
                                 <th>No.Tiket</th>
                                 <th>Topik</th>
+                                <th>Peruntukan</th>
                                 <th>Judul Permasalahan</th>
                                 <th>Deskripsi</th>
                                 <th>Lampiran</th>
@@ -45,6 +47,7 @@
                             <tr>
                                 <td>{{ $row->no_tiket }}</td>
                                 <td>{{ $row->topik }}</td>
+                                <td>{{ $row->peruntukan }}</td>
                                 <td>{{ $row->judul }}</td>
                                 <td>{{ $row->deskripsi }}</td>
                                 <td>{{ $row->lampiran }}</td>
