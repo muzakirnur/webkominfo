@@ -110,6 +110,7 @@ class PermohonanController extends Controller
             'judul' => 'required',
             'deskripsi' => 'required',
             'lampiran' => 'required',
+            'peruntukan' => 'required',
             'state_id' => 'required',
             'progres' => 'required'
         ]);
