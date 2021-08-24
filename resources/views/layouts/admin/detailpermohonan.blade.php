@@ -54,7 +54,7 @@
                     <div class="col-6 col-sm-4">
                     <label for="basic-url" class="form-label">Status</label>
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" id="hp" name="hp" value="{{ $permohonan->status }}" readonly>
+                        <input type="text" class="form-control" id="hp" name="hp" value="{{ $permohonan->state->name }}" readonly>
                     </div>
                     </div>
                     <div class="col-6 col-sm-4">
@@ -66,7 +66,7 @@
                     </div>
                     <div class="card-footer">
                         <div class="row row-cols-lg-1 justify-content-between mx-auto">
-                    <a href="{{ route('permohonan.index') }}" class="btn btn-primary shadow-sm" type="submit"><i class="fas fa-chevron-left"></i> Kembali</a>
+                        <button type="button" class="btn btn-primary mt-2 mx-auto shadow-sm" onclick="history.back(-1)"><i class="fas fa-chevron-left"></i> Kembali</button></a></div>
                         </div>
                     </div>
                 </div>

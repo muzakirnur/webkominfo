@@ -4,35 +4,35 @@
 
    <!-- Begin Page Content -->
    <div class="container">
-    @if (session()->has('updatesuccess'))
-    <div class="alert alert-primary d-flex align-items-center" role="alert">
-        <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img"
-            aria-label="Success:">
-            <use xlink:href="#check-circle-fill" />
-        </svg>
-        <div>
-            {{ session('updatesuccess') }}
-        </div>
-    </div>
-@endif
-@if ($errors->any())
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
+       
+       <!-- Page Heading -->
+       <h1 class="h3 mb-2 text-gray-800">Daftar User</h1>
+       
+       <!-- DataTales Example -->
+       <div class="card shadow mb-4">
+           <div class="card-header py-3">
+               <h6 class="m-0 font-weight-bold text-info">Tabel User</h6>
+            </div>
+            @if (session()->has('updatesuccess'))
+            <div class="alert alert-primary d-flex align-items-center" role="alert">
+                <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img"
+                    aria-label="Success:">
+                    <use xlink:href="#check-circle-fill" />
+                </svg>
+                <div>
+                    {{ session('updatesuccess') }}
                 </div>
-            @endif
-
-    <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">Daftar Permohonan</h1>
-
-    <!-- DataTales Example -->
-    <div class="card shadow mb-4">
-        <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-info">Daftar User</h6>
-        </div>
+            </div>
+        @endif
+        @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
         <div class="card-body">
             <div class="table-responsive">
                 <table class="table table-bordered text-center" id="dataTable" width="100%" cellspacing="0">

@@ -111,30 +111,6 @@ class ProfileController extends Controller
             ->with('updatesuccess', 'Profile Berhasil diupdate', compact('UserProfile'));
     }
 
-    public function passwordIndex(Request $request)
-    {
-        // $DaftarUser = Auth::user();
-
-        // $request->validate([
-        //     'password' => 'required'
-        // ]);
-
-        return view('layouts.admin.setting.setting', ['page' => 'Edit Password']);
-    }
-
-    public function passwordUpdate(Request $request)
-    {
-
-        $validatedData = $request->validate([
-            'password' => 'required|min:5|max:255|confirmed',
-        ]);
-
-        $validatedData['password'] = Hash::make($validatedData['password']);
-
-        Auth::user()->update($validatedData);
-
-        return redirect()->intended('/home');;
-    }
 
     /**
      * Remove the specified resource from storage.

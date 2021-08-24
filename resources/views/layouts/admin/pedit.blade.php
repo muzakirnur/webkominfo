@@ -41,12 +41,10 @@
               </div>
             <label class="form-label">Status</label>
             <div class="input-group mb-3">
-              <select class="form-select" id="status" name="status">
-                @foreach($permohonan->id as $state)
-                <option selected>{{ $state->name }}</option>
-                <option value="{{ $state->id }}">{{ $state->name }}</option>
-                <option value="Diproses">{{ $state->name }}</option>
-                <option value="Ditolak">{{ $state->name }}</option>
+              <select class="form-select" id="state_id" name="state_id">
+                <option selected>{{ $permohonan->state->name }}</option>
+                @foreach($states as $row)
+                <option value="{{ $row->id }}">{{ $row->name }}</option>
                 @endforeach
               </select>
             </div>
@@ -57,7 +55,7 @@
               <div class="card-footer mt-5 border-primary text-center">
                 <div class="row row-cols-lg-2">
                   <div class="col">
-              <a href="{{ route('permohonan.index') }}"><button type="button" class="btn btn-light mt-2 mx-auto shadow-sm"><i class="fas fa-chevron-left"></i> Kembali</button></a></div>
+              <button type="button" class="btn btn-light mt-2 mx-auto shadow-sm" onclick="history.back(-1)"><i class="fas fa-chevron-left"></i> Kembali</button></a></div>
               <div class="col">
                 <button type="submit" class="btn btn-primary mt-2 mx-auto shadow-sm"><i class="fas fa-check"></i> Simpan</button></div>
               </div>

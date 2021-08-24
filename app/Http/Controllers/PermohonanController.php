@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Permohonan;
+use App\Models\State;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -46,17 +47,17 @@ class PermohonanController extends Controller
     public function store(Request $request)
     {
         $nm = $request->lampiran;
-        $idgen = time().rand(100,999);
+        $idgen = time() . rand(100, 999);
         $namaFile = $nm->getClientOriginalName();
 
         $dtUpload = new Permohonan;
         $dtUpload->no_tiket = $idgen;
         $dtUpload->user_id = $request->user_id;
+        $dtUpload->state_id = $request->state_id;
         $dtUpload->topik = $request->topik;
         $dtUpload->judul = $request->judul;
         $dtUpload->deskripsi = $request->deskripsi;
         $dtUpload->lampiran = $namaFile;
-        $dtUpload->state_id = $request->state_id;
         $dtUpload->progres = $request->progres;
 
         $nm->move(public_path() . '/lampiran', $namaFile);
@@ -88,8 +89,9 @@ class PermohonanController extends Controller
      */
     public function edit($id)
     {
+        $states = State::all();
         $permohonan = Permohonan::find($id);
-        return view('layouts.admin.pedit', compact('permohonan'), ['page' => 'Edit']);
+        return view('layouts.admin.pedit', compact('permohonan', 'states'), ['page' => 'Edit']);
     }
 
     /**
@@ -107,7 +109,7 @@ class PermohonanController extends Controller
             'judul' => 'required',
             'deskripsi' => 'required',
             'lampiran' => 'required',
-            'status' => 'required',
+            'state_id' => 'required',
             'progres' => 'required'
         ]);
         $permohonan->update($request->all());
@@ -125,5 +127,36 @@ class PermohonanController extends Controller
     public function destroy(Permohonan $permohonan)
     {
         //
+    }
+
+    public function masuk()
+    {
+        $permohonan = Permohonan::latest()->paginate(5)->where('state_id', '1');
+        return view('layouts.admin.permohonans.masuk', compact('permohonan'), ['page' => 'Permohonan Masuk'])
+            ->with('i', (request()->input('page', 1) - 1) * 5);
+    }
+    public function diterima()
+    {
+        $permohonan = Permohonan::latest()->paginate(5)->where('state_id', '2');
+        return view('layouts.admin.permohonans.diterima', compact('permohonan'), ['page' => 'Permohonan Diterima'])
+            ->with('i', (request()->input('page', 1) - 1) * 5);
+    }
+    public function diproses()
+    {
+        $permohonan = Permohonan::latest()->paginate(5)->where('state_id', '3');
+        return view('layouts.admin.permohonans.diproses', compact('permohonan'), ['page' => 'Permohonan Diproses'])
+            ->with('i', (request()->input('page', 1) - 1) * 5);
+    }
+    public function ditolak()
+    {
+        $permohonan = Permohonan::latest()->paginate(5)->where('state_id', '4');
+        return view('layouts.admin.permohonans.ditolak', compact('permohonan'), ['page' => 'Permohonan Ditolak'])
+            ->with('i', (request()->input('page', 1) - 1) * 5);
+    }
+    public function selesai()
+    {
+        $permohonan = Permohonan::latest()->paginate(5)->where('state_id', '5');
+        return view('layouts.admin.permohonans.masuk', compact('permohonan'), ['page' => 'Permohonan Selesai'])
+            ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 }

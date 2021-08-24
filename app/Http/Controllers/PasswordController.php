@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 
-class DaftarUserController extends Controller
+class PasswordController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +15,7 @@ class DaftarUserController extends Controller
      */
     public function index()
     {
-        $DaftarUser = User::latest()->paginate(5);
-        return view('layouts.admin.users', ['page' => 'Daftar User'], compact('DaftarUser'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+        //
     }
 
     /**
@@ -49,9 +47,7 @@ class DaftarUserController extends Controller
      */
     public function show($id)
     {
-        //menampilkan detail data dengan menemukan/berdasarkan id user
-        $DaftarUser = User::find($id);
-        return view('layouts.admin.detailuser', compact('DaftarUser'), ['page' => 'Detail User']);
+        //
     }
 
     /**
@@ -62,8 +58,7 @@ class DaftarUserController extends Controller
      */
     public function edit($id)
     {
-        $DaftarUser = User::find($id);
-        return view('layouts.admin.useredit', compact('DaftarUser'), ['page' => 'Edit User']);
+        return view('layouts.admin.setting.setting', ['page' => 'Edit Password']);
     }
 
     /**
@@ -73,24 +68,32 @@ class DaftarUserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $DaftarUser, $id)
+    public function update(Request $request)
     {
-        $DaftarUser = User::find($id);
+        $user = Auth::user();
+
+        $userPassword = $user->password;
+
         $request->validate([
-            'name' => 'required',
-            'nip' => 'required',
-            'jabatan' => 'required',
-            'instansi' => 'required',
-            'hp' => 'required',
-            'role' => 'required',
-            'email' => 'required',
-            'profile' => 'required'
+            'current_password' => 'required',
+            'password' => 'required|same:confirm_password|min:6',
+            'confirm_password' => 'required',
         ]);
 
-        $DaftarUser->update($request->all());
+        if (!Hash::check($request->current_password, $userPassword)) {
+            return back()->withErrors(['current_password' => 'password not match']);
+        }
 
-        return redirect()->route('daftaruser.index')
-            ->with('updatesuccess', 'User Berhasil diupdate');
+        $user->password = Hash::make($request->password);
+
+        $user->save();
+
+        return redirect()->back()->with('success', 'Password Berhasil di Update');
+        // $request->user()->update([
+        //     'password' => Hash::make($request->get('password'))
+        // ]);
+
+        // return redirect()->to('home')->with('successpw', 'Password Berhasil diupdate');
     }
 
     /**

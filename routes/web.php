@@ -12,9 +12,14 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\IndexPermohonanController;
 use App\Http\Controllers\LayarUserController;
+<<<<<<< HEAD
 use App\Http\Controllers\PermohonanSelesaiControler;
+=======
+use App\Http\Controllers\PasswordController;
+>>>>>>> bf43fbe3c72a95c185996840284f1d163caf9d6c
 use App\Http\Controllers\PermohonanUserController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ForgotPasswordController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,35 +51,37 @@ Route::get('/faq', function () {
     ]);
 });
 
-Route::get('/forgot-password', function () {
-    return view('forgot', [
-        "page" => "forgot"
-    ]);
-});
-
 Route::get('login', [LoginController::class, 'index'])->name('login');
 Route::post('login', [LoginController::class, 'login']);
 
 Route::get('register', [RegisterController::class, 'index'])->name('register');
 Route::post('register', [RegisterController::class, 'store']);
 
+Route::get('forget-password', [ForgotPasswordController::class, 'showForgetPasswordForm'])->name('forget.get');
+Route::post('forget-password', [ForgotPasswordController::class, 'submitForgetPasswordForm'])->name('forget.post');
+Route::get('reset-password/{token}', [ForgotPasswordController::class, 'showResetPasswordForm'])->name('reset.get');
+Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
+
 Route::group(['middleware' => 'auth'], function () {
 
-    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::get('home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
     Route::middleware(['admin'])->group(function () {
-        Route::get('admin/dashboard', function () {
-            return view('layouts.admin.dashboard', [
-                "page" => "Dashboard"
-            ]);
-        });
-        Route::resource('permohonan', PermohonanController::class);
-        Route::resource('daftaruser', DaftarUserController::class);
+        // Route::get('admin/dashboard', function () {
+        //     return view('layouts.admin.dashboard', [
+        //         "page" => "Dashboard"
+        //     ]);
+        // });
+        Route::get('admin/dashboard', [AdminController::class, 'index'])->name('index');
+        Route::get('permohonan/masuk', [PermohonanController::class, 'masuk'])->name('masuk');
+        Route::get('permohonan/diterima', [PermohonanController::class, 'diterima'])->name('diterima');
+        Route::get('permohonan/ditolak', [PermohonanController::class, 'ditolak'])->name('ditolak');
+        Route::get('permohonan/diproses', [PermohonanController::class, 'diproses'])->name('diproses');
+        Route::get('permohonan/selesai', [PermohonanController::class, 'selesai'])->name('selesai');
+        Route::resource('admin/permohonan', PermohonanController::class);
+        Route::resource('admin/daftaruser', DaftarUserController::class);
         Route::resource('profile', ProfileController::class);
-        //Route::get('admin/permohonan', [PermohonanController::class, 'index'])->name('index');
-        Route::get('admin/setting/{id}', [ProfileController::class, 'passwordIndex'])->name('password');
-        Route::post('admin/setting/{id}', [ProfileController::class, 'passwordUpdate'])->name('password');
-        //Route::post('admin/permohonan/update/{id}', [PermohonanController::class, 'update']);
+        Route::resource('password', PasswordController::class);
     });
 
     Route::middleware(['user'])->group(function () {
