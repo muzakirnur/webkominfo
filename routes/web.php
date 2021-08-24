@@ -59,14 +59,15 @@ Route::post('register', [RegisterController::class, 'store']);
 
 Route::group(['middleware' => 'auth'], function () {
 
-    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::get('home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
     Route::middleware(['admin'])->group(function () {
-        Route::get('admin/dashboard', function () {
-            return view('layouts.admin.dashboard', [
-                "page" => "Dashboard"
-            ]);
-        });
+        // Route::get('admin/dashboard', function () {
+        //     return view('layouts.admin.dashboard', [
+        //         "page" => "Dashboard"
+        //     ]);
+        // });
+        Route::get('admin/dashboard', [AdminController::class, 'index'])->name('index');
         Route::resource('permohonan', PermohonanController::class);
         Route::resource('daftaruser', DaftarUserController::class);
         Route::resource('profile', ProfileController::class);

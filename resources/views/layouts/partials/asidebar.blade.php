@@ -18,14 +18,14 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item {{ ($page === "Dashboard") ? 'active' : ''}}">
-        <a class="nav-link" href="{{ route('home') }}">
+        <a class="nav-link" href="{{ route('index') }}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
     </li>
 
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item {{ ($page === "Permohonan")  ? 'active' : '' }}">
-        <a class="nav-link collapsed" href="{{ route('permohonan.index') }}">
+        <a class="nav-link" href="{{ route('permohonan.index') }}">
             <i class="fas fa-file-alt fa-cog"></i>
             <span>Permohonan</span>
         </a>
@@ -33,7 +33,7 @@
 
     <!-- Nav Item - Utilities Collapse Menu -->
     <li class="nav-item  {{ ($page == "Daftar User") ? 'active' : '' }}">
-        <a class="nav-link collapsed" href="{{ route('daftaruser.index') }}">
+        <a class="nav-link" href="{{ route('daftaruser.index') }}">
             <i class="fas fa-users"></i>
             <span>User</span>
         </a>
