@@ -34,8 +34,7 @@ class PermohonanController extends Controller
 
     public function create()
     {
-        $permohonan = Permohonan::all();
-        return view('layouts.user.tambah', compact('permohonan'), ['page' => 'Tambah Permohonan']);
+        //
     }
 
     /**
@@ -46,27 +45,7 @@ class PermohonanController extends Controller
      */
     public function store(Request $request)
     {
-        $nm = $request->lampiran;
-        $idgen = time() . rand(100, 999);
-        $namaFile = $nm->getClientOriginalName();
-
-        $dtUpload = new Permohonan;
-        $dtUpload->no_tiket = $idgen;
-        $dtUpload->user_id = $request->user_id;
-        $dtUpload->state_id = $request->state_id;
-        $dtUpload->topik = $request->topik;
-        $dtUpload->peruntukan = $request->peruntukan;
-        $dtUpload->judul = $request->judul;
-        $dtUpload->deskripsi = $request->deskripsi;
-        $dtUpload->lampiran = $namaFile;
-        $dtUpload->progres = $request->progres;
-
-        $nm->move(public_path() . '/lampiran', $namaFile);
-        $dtUpload->save();
-
-
-        return redirect()->route('permohonanuser.index')
-            ->with('updatesuccess', 'Permohonan Berhasil Dikirim');
+        //
     }
 
 

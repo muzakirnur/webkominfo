@@ -32,7 +32,7 @@
 
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item {{ ($page === "Tambah Permohonan")  ? 'active' : '' }}">
-        <a class="nav-link collapsed" href="{{ route('permohonan.create') }}">
+        <a class="nav-link collapsed" href="{{ route('permohonanselesai.create') }}">
             <i class="fas fa-file-alt fa-cog"></i>
             <span>Tambah Permohonan</span>
         </a>
