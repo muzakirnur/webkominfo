@@ -24,6 +24,15 @@
             </div>
 
             <div class="form-group">
+                <label >Peruntukan</label>
+                    <select class="form-control" id="exampleFormControlSelect1" name="peruntukan" placeholder="Kategori" required>
+                        <option>Instansi SKPK</option>
+                        <option>Instansi non SKPK</option>
+                        <option>Kegiatan Instansi SKPK</option>
+                    </select>
+            </div>
+
+            <div class="form-group">
                 <label >Judul</label>
                     <input type="text" class="form-control" name="judul" placeholder="Input Judul" required>
             </div>
