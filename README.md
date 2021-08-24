@@ -20,7 +20,7 @@ Don't Foget to give me a star. Thankyou
 3. Setup your file <code>.env</code> in accordance with your database
 4. Run <code>php artisan migrate</code>
 5. Run <code>php artisan db:seed</code>
-6. Done
+6. in order to make "admin", u need to manually edit the user role to "admin". Because default of user role is "user"
 
 ## Feature
 
