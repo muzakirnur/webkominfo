@@ -3,7 +3,7 @@
 @section('body')
     <div class="d-flex container justify-content-center">
         <!-- Outer Row -->
-        <div class="card w-75 o-hidden border-0 shadow-lg my-5 justify-content-center">
+        <div class="card w-50 o-hidden border-0 shadow-lg my-5 justify-content-center" style="border-radius: 2rem">
             <div class="card-body p-0">
                 <!-- Nested Row within Card Body -->
                 <div class="row justify-content-center">
@@ -31,21 +31,20 @@
                                     aria-describedby="emailHelp" name="email" placeholder="Masukkan Alamat Email" required>
                             </div>
                             <div class="form-group">
-                                <input type="password" class="form-control form-control-user" id="exampleInputPassword"
+                                <input type="password" class="form-control form-control-user @error('password') is-invalid @enderror" id="exampleInputPassword"
                                     name="password" placeholder="Masukkan Password" required>
-                                <div class="form-group">
-                                    <div class="custom-control custom-checkbox small">
-                                        <input type="checkbox" class="custom-control-input" id="customCheck">
-                                        <label class="custom-control-label" for="customCheck">Ingat Saya</label>
-                                    </div>
-                                </div>
-                                <button type="submit" class="btn btn-primary btn-user btn-block">
+                                    @error('password')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+                                <button type="submit" class="btn btn-primary btn-user btn-block mt-3">
                                     Login
                                 </button>
                         </form>
                         <hr>
                         <div class="text-center">
-                            <a class="small" href="/forgot">Lupa Password ?</a>
+                            <a class="small" href="{{ route('forget.get') }}">Lupa Password ?</a>
                         </div>
                         <div class="text-center">
                             <a class="small" href="/register">Buat Akun !</a>

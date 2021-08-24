@@ -16,13 +16,13 @@
                     <div class="col-6 col-sm-4">
                     <label for="basic-url" class="form-label">Nama</label>
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" id="name" name="name" value="{{ $DaftarUser->name }}">
+                        <input type="text" class="form-control" id="name" name="name" value="{{ $DaftarUser->name }}" required>
                     </div>
                     </div>
                     <div class="col-6 col-sm-4">
                     <label for="basic-url" class="form-label">NIP</label>
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" id="nip" name="nip" value="{{ $DaftarUser->nip }}">
+                        <input type="text" class="form-control" id="nip" name="nip" value="{{ $DaftarUser->nip }}" required>
                     </div>
                     </div>
                     <div class="col-6 col-sm-4">
@@ -36,19 +36,19 @@
                     <div class="col-6 col-sm-4">
                     <label for="basic-url" class="form-label">Jabatan</label>
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" id="jabatan" name="jabatan" value="{{ $DaftarUser->jabatan }}">
+                        <input type="text" class="form-control" id="jabatan" name="jabatan" value="{{ $DaftarUser->jabatan }}" required>
                     </div>
                     </div>
                     <div class="col-6 col-sm-4">
                     <label for="basic-url" class="form-label">Instansi</label>
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" id="instansi" name="instansi" value="{{ $DaftarUser->instansi }}">
+                        <input type="text" class="form-control" id="instansi" name="instansi" value="{{ $DaftarUser->instansi }}" required>
                     </div>
                     </div>
                     <div class="col-6 col-sm-4">
                     <label for="basic-url" class="form-label">No Handphone</label>
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" id="hp" name="hp" value="{{ $DaftarUser->hp }}">
+                        <input type="text" class="form-control" id="hp" name="hp" value="{{ $DaftarUser->hp }}" required>
                     </div>
                     </div>
                     </div>
@@ -56,7 +56,7 @@
                     <div class="col-6 col-sm-4">
                     <label for="basic-url" class="form-label">role</label>
                     <div class="input-group mb-3">
-                        <select class="form-select" id="inputGroupSelect02" name="role" id="role">
+                        <select class="form-select" id="inputGroupSelect02" name="role" id="role" required>
                           <option selected>{{ $DaftarUser->role }}</option>
                           <option value="admin">admin</option>
                           <option value="user">user</option>
@@ -66,7 +66,7 @@
                     <div class="col-6 col-sm-4">
                     <label for="basic-url" class="form-label">Email</label>
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" id="email" name="email" value="{{ $DaftarUser->email }}">
+                        <input type="text" class="form-control" id="email" name="email" value="{{ $DaftarUser->email }}" required>
                     </div>
                     </div>
                     </div>

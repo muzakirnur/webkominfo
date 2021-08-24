@@ -15,19 +15,26 @@
                     <div class="row justify-content-center">
                         <div class="col-lg-6">
                             <div class="p-5">
+                                @if (Session::has('message'))
+                                    <div class="alert alert-success" role="alert">
+                                        {{ Session::get('message') }}
+                                    </div>
+                                @endif
                                 <div class="text-center">
                                     <h1 class="h4 text-gray-900 mb-2">Lupa Password Kamu ?</h1>
                                     <p class="mb-4">Jangan Panik, Masukkan email kamu dibawah dan akan kami kirimkan sebuah kode verifikasi</p>
                                 </div>
-                                <form class="user">
-                                    <div class="form-group">
-                                        <input type="email" class="form-control form-control-user"
-                                            id="exampleInputEmail" aria-describedby="emailHelp"
-                                            placeholder="Enter Email Address...">
+                                <form action="{{ route('forget.post') }}" method="POST" class="user">
+                                    @csrf
+                                        <div class="form-group">
+                                            <input type="text" id="email_address" class="form-control form-control-user" name="email" required autofocus>
+                                            @if ($errors->has('email'))
+                                                <span class="text-danger">{{ $errors->first('email') }}</span>
+                                            @endif
                                     </div>
-                                    <a href="#" class="btn btn-primary btn-user btn-block">
-                                        Reset Password
-                                    </a>
+                                        <button type="submit" class="btn btn-primary btn-user btn-block mt-2">
+                                            Submit
+                                        </button>
                                 </form>
                                 <hr>
                                 <div class="text-center">

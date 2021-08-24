@@ -28,7 +28,8 @@ class LoginController extends Controller
         }
 
         return back()->withErrors([
-            'email' => 'Email yang anda masukkan tidak terdaftar',
+            'email' => 'Email atau Password yang anda masukkan tidak terdaftar',
+            'password' => 'Email atau Password yang anda masukkan tidak benar',
         ]);
     }
 

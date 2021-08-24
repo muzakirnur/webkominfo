@@ -14,6 +14,7 @@ use App\Http\Controllers\LayarUserController;
 use App\Http\Controllers\PasswordController;
 use App\Http\Controllers\PermohonanUserController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ForgotPasswordController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,17 +46,16 @@ Route::get('/faq', function () {
     ]);
 });
 
-Route::get('/forgot-password', function () {
-    return view('forgot', [
-        "page" => "forgot"
-    ]);
-});
-
 Route::get('login', [LoginController::class, 'index'])->name('login');
 Route::post('login', [LoginController::class, 'login']);
 
 Route::get('register', [RegisterController::class, 'index'])->name('register');
 Route::post('register', [RegisterController::class, 'store']);
+
+Route::get('forget-password', [ForgotPasswordController::class, 'showForgetPasswordForm'])->name('forget.get');
+Route::post('forget-password', [ForgotPasswordController::class, 'submitForgetPasswordForm'])->name('forget.post');
+Route::get('reset-password/{token}', [ForgotPasswordController::class, 'showResetPasswordForm'])->name('reset.get');
+Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
 
 Route::group(['middleware' => 'auth'], function () {
 
@@ -68,8 +68,13 @@ Route::group(['middleware' => 'auth'], function () {
         //     ]);
         // });
         Route::get('admin/dashboard', [AdminController::class, 'index'])->name('index');
-        Route::resource('permohonan', PermohonanController::class);
-        Route::resource('daftaruser', DaftarUserController::class);
+        Route::get('permohonan/masuk', [PermohonanController::class, 'masuk'])->name('masuk');
+        Route::get('permohonan/diterima', [PermohonanController::class, 'diterima'])->name('diterima');
+        Route::get('permohonan/ditolak', [PermohonanController::class, 'ditolak'])->name('ditolak');
+        Route::get('permohonan/diproses', [PermohonanController::class, 'diproses'])->name('diproses');
+        Route::get('permohonan/selesai', [PermohonanController::class, 'selesai'])->name('selesai');
+        Route::resource('admin/permohonan', PermohonanController::class);
+        Route::resource('admin/daftaruser', DaftarUserController::class);
         Route::resource('profile', ProfileController::class);
         Route::resource('password', PasswordController::class);
     });
@@ -86,11 +91,11 @@ Route::group(['middleware' => 'auth'], function () {
         //Route::post('user/tambah', [PermohonanController::class, 'store']);
         //Route::get('user/edituser', [DaftarUserController::class, 'tampil'])->name('tampil');
         //Route::post('user/edituser', [DaftarUserController::class, 'uedit']);
-        Route::resource('user', UserController::class);
-        Route::resource('daftaruser', DaftarUserController::class);
-        Route::resource('permohonan', PermohonanController::class);
-        Route::resource('layaruser', LayarUserController::class);
-        Route::resource('permohonanuser', PermohonanUserController::class);
+        // Route::resource('user', UserController::class);
+        // Route::resource('daftaruser', DaftarUserController::class);
+        // Route::resource('permohonan', PermohonanController::class);
+        // Route::resource('layaruser', LayarUserController::class);
+        // Route::resource('permohonanuser', PermohonanUserController::class);
     });
 
     Route::get('logout', [LoginController::class, 'logout'])->name('logout');
