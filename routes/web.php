@@ -65,11 +65,11 @@ Route::group(['middleware' => 'auth'], function () {
         //     ]);
         // });
         Route::get('admin/dashboard', [AdminController::class, 'index'])->name('index');
-        Route::get('permohonan/masuk', [PermohonanController::class, 'masuk'])->name('masuk');
-        Route::get('permohonan/diterima', [PermohonanController::class, 'diterima'])->name('diterima');
-        Route::get('permohonan/ditolak', [PermohonanController::class, 'ditolak'])->name('ditolak');
-        Route::get('permohonan/diproses', [PermohonanController::class, 'diproses'])->name('diproses');
-        Route::get('permohonan/selesai', [PermohonanController::class, 'selesai'])->name('selesai');
+        Route::get('admin/permohonan/masuk', [PermohonanController::class, 'masuk'])->name('masuk');
+        Route::get('admin/permohonan/diterima', [PermohonanController::class, 'diterima'])->name('diterima');
+        Route::get('admin/permohonan/ditolak', [PermohonanController::class, 'ditolak'])->name('ditolak');
+        Route::get('admin/permohonan/diproses', [PermohonanController::class, 'diproses'])->name('diproses');
+        Route::get('admin/permohonan/selesai', [PermohonanController::class, 'selesai'])->name('selesai');
         Route::resource('admin/permohonan', PermohonanController::class);
         Route::resource('admin/daftaruser', DaftarUserController::class);
         Route::resource('profile', ProfileController::class);
@@ -89,13 +89,11 @@ Route::group(['middleware' => 'auth'], function () {
         //Route::get('user/edituser', [DaftarUserController::class, 'tampil'])->name('tampil');
         //Route::post('user/edituser', [DaftarUserController::class, 'uedit']);
         Route::resource('user', UserController::class);
-        Route::resource('daftaruser', DaftarUserController::class);
         Route::resource('permohonan', PermohonanController::class);
         Route::resource('layaruser', LayarUserController::class);
         Route::resource('permohonanuser', PermohonanUserController::class);
         Route::resource('indexpermohonan', IndexPermohonanController::class);
         Route::resource('permohonanselesai', PermohonanSelesaiControler::class);
-
     });
 
     Route::get('logout', [LoginController::class, 'logout'])->name('logout');

@@ -16,7 +16,7 @@
                     <input type="hidden" class="form-control" name="state_id" value="1" readonly>
             
             <div class="form-group">
-                <label >Kategori</label>
+                <label >Topik</label>
                     <select class="form-control" id="exampleFormControlSelect1" name="topik" placeholder="Kategori" required>
                         <option>Internet</option>
                         <option>Intranet</option>
@@ -25,7 +25,7 @@
 
             <div class="form-group">
                 <label >Peruntukan</label>
-                    <select class="form-control" id="exampleFormControlSelect1" name="peruntukan" placeholder="Kategori" required>
+                    <select class="form-control" id="exampleFormControlSelect1" name="peruntukan" required>
                         <option>Instansi SKPK</option>
                         <option>Instansi non SKPK</option>
                         <option>Kegiatan Instansi SKPK</option>

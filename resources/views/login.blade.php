@@ -7,19 +7,19 @@
             <div class="card-body p-0">
                 <!-- Nested Row within Card Body -->
                 <div class="row justify-content-center">
+                    @if (session()->has('success'))
+                        <div class="alert alert-success d-flex align-items-center" role="alert">
+                            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img"
+                                aria-label="Success:">
+                                <use xlink:href="#check-circle-fill" />
+                            </svg>
+                            <div>
+                                {{ session('success') }}, Silahkan Login
+                            </div>
+                        </div>
+                    @endif
                     <div class="col-lg-7">
                         <div class="p-5">
-                            @if (session()->has('success'))
-                                <div class="alert alert-success d-flex align-items-center" role="alert">
-                                    <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img"
-                                        aria-label="Success:">
-                                        <use xlink:href="#check-circle-fill" />
-                                    </svg>
-                                    <div>
-                                        {{ session('success') }}, Silahkan Login
-                                    </div>
-                                </div>
-                            @endif
                         </div>
                         <div class="text-center">
                             <h1 class="h4 text-gray-900 mb-4">Selamat Datang !</h1>
