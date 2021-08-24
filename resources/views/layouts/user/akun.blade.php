@@ -18,7 +18,7 @@
             <div class="card">
                 <div class="card-body">
                 <div class="d-flex flex-column align-items-center text-center">
-                    <img src="https://bootdey.com/img/Content/avatar/avatar7.png" class="rounded-circle"  alt="Users Profile" width="150">
+                    <img src="/img/user/{{ $layaruser->profile }}" style="width:180px;height:200px" class="img-profile rounded-circle" alt="Users Profile">
                     <div class="mt-3">
                         <p class="text-secondary mb-1">{{ Auth::user()->name }}</p>
                     </div>

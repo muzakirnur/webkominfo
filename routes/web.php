@@ -17,6 +17,7 @@ use App\Http\Controllers\PasswordController;
 use App\Http\Controllers\PermohonanUserController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ForgotPasswordController;
+use App\Http\Controllers\PwUserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -77,22 +78,14 @@ Route::group(['middleware' => 'auth'], function () {
     });
 
     Route::middleware(['user'])->group(function () {
-        Route::get('user/dashboard', function () {
-            return view('layouts.user.dashboard', [
-                "page" => "Dashboard User"
-            ]);
-        });
-        //Route::get('user/permohonan', [PermohonanController::class, 'awal'])->name('awal');
-        //Route::get('user/akun', [DaftarUserController::class, 'akun'])->name('akun');
-        //Route::get('user/tambah', [PermohonanController::class, 'create'])->name('create');
-        //Route::post('user/tambah', [PermohonanController::class, 'store']);
-        //Route::get('user/edituser', [DaftarUserController::class, 'tampil'])->name('tampil');
-        //Route::post('user/edituser', [DaftarUserController::class, 'uedit']);
-        Route::resource('user', UserController::class);
+        
+
+        Route::get('user/dashboard', [UserController::class, 'index'])->name('index');
         Route::resource('layaruser', LayarUserController::class);
         Route::resource('permohonanuser', PermohonanUserController::class);
         Route::resource('indexpermohonan', IndexPermohonanController::class);
         Route::resource('permohonanselesai', PermohonanSelesaiControler::class);
+        Route::resource('pwuser', PwUserController::class);
     });
 
     Route::get('logout', [LoginController::class, 'logout'])->name('logout');

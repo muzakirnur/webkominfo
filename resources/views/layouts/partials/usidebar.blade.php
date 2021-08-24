@@ -4,9 +4,9 @@
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
         <div class="sidebar-brand-icon">
-            <i class="fas fa-laptop-house"></i>
+            <img src="/img/kominfo2.png" style="width: 60%;margin-left:5px"/>
         </div>
-        <div class="sidebar-brand-text mx-3">Kominfo</div>
+        <div class="sidebar-brand-text mx-3" style="color:#28166F;font-size:12pt">Kominfo</div>
     </a>
 
     <!-- Divider -->
@@ -25,7 +25,7 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item {{ ($page === "Dashboard User") ? 'active' : ''}}">
-        <a class="nav-link" href="{{ route('home') }}">
+        <a class="nav-link" href="{{ route('index') }}">
             <i class="fas fa-fw fa-columns"></i>
             <span>Dashboard</span></a>
     </li>
@@ -42,7 +42,7 @@
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
             aria-expanded="true" aria-controls="collapseUtilities">
-            <i class="fas fa-fw fa-wrench"></i>
+            <i class="fas fa-laptop"></i>
             <span>Daftar Permohonan</span>
         </a>
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">

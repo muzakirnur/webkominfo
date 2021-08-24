@@ -69,23 +69,24 @@ class LayarUserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, User $layaruser)
     {
-        $this->validate($request, [
-            'name' => 'required',
-            'nip' => 'required',
-            'jabatan' => 'required',
-            'instansi' => 'required',
-            'hp' => 'required',
-            'role' => 'required',
-            'email' => 'required',
+        $nm = $request->profile;
+        $namaFile = $nm->getClientOriginalName();
 
-            $nm = $request->profile,
-            $namaFile = $nm->getClientOriginalName(),
-        ]);
+        $layaruser = Auth::user();
+        $layaruser->name = $request->name;
+        $layaruser->nip = $request->nip;
+        $layaruser->profile = $namaFile;
+        $layaruser->jabatan = $request->jabatan;
+        $layaruser->instansi = $request->instansi;
+        $layaruser->hp = $request->hp;
+        $layaruser->role = $request->role;
+        $layaruser->email = $request->email;
 
-        Auth::user()->update($request->all());
-        $nm->move(public_path().'/img/user',$namaFile);
+        $nm->move(public_path() . '/img/user', $namaFile);
+        $layaruser->update();
+
 
         return redirect()->route('layaruser.index')
             ->with('updatesuccess', 'Profile Berhasil diupdate');
