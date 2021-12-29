@@ -117,13 +117,12 @@
             <div class="menu-bar row">
                 <ul id="menu">
                     <li class="menubar parent">
-                        <a class="" data-parent="#menu" href="#1" data-toggle="collapse">
+                        <a class="" href="{{ route('login') }}">
                             <img src="img/globe.png" alt=""></a>
                         <span class="title">INTERNET</span>
                     </li>
                     <li class="menubar parent">
-                        <a class="" data-parent="#menu" href="#2" data-toggle="collapse"><img
-                                src="img/intranet.png" alt=""></a>
+                        <a class="" href="{{ route('login') }}"><img src="img/intranet.png" alt=""></a>
                         <span class="title">INTRANET</span>
                     </li>
                     <li class="menubar parent">
@@ -137,7 +136,7 @@
                         <span class="title">MENARA TRIANGLE</span>
                     </li>
                     <li class="menubar">
-                        <a class="" href="login"><img
+                        <a class="" href="#"><img
                                 src="https://layanan.kominfo.go.id/images/icon/landing/aduan-konten.png" alt=""></a>
                         <span class="title">VPN</span>
                     </li>
