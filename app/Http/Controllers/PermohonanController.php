@@ -81,20 +81,13 @@ class PermohonanController extends Controller
      * @param  \App\Models\Permohonan  $permohonan
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Permohonan $permohonan)
+    public function update(Request $request, $id)
     {
-        $request->validate([
-            'no_tiket' => 'required',
-            'topik' => 'required',
-            'judul' => 'required',
-            'deskripsi' => 'required',
-            'lampiran' => 'required',
-            'peruntukan' => 'required',
+        $validated = $request->validate([
             'state_id' => 'required',
             'progres' => 'required'
         ]);
-        $permohonan->update($request->all());
-
+        Permohonan::find($id)->update($validated);
         return redirect()->route('permohonan.index')
             ->with('updatesuccess', 'Permohonan Berhasil diupdate');
     }
